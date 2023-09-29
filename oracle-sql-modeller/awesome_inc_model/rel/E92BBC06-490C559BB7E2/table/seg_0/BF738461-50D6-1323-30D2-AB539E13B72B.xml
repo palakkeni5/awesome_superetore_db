@@ -1,0 +1,205 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BF738461-50D6-1323-30D2-AB539E13B72B" name="PKBC_ADDRESS">
+<createdBy>palak</createdBy>
+<createdTime>2023-09-29 02:35:41 UTC</createdTime>
+<generatorID>0334B01E-138F-AAAF-0B1F-1F325219FEC8</generatorID>
+<ownerDesignName>awesome_inc_model</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ADDR_ID" id="0DA18C14-D5F8-10A1-384D-2BF702638DFA">
+<createdBy>palak</createdBy>
+<createdTime>2023-09-29 02:35:41 UTC</createdTime>
+<commentInRDBMS><![CDATA[Address ID]]></commentInRDBMS>
+<generatorID>5FA666F8-0EA5-AB79-5B7A-47F468889038</generatorID>
+<ownerDesignName>awesome_inc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CITY_ID" id="0E7A7346-BDF6-BF95-9F60-95D4A893276B">
+<createdBy>palak</createdBy>
+<createdTime>2023-09-29 02:35:41 UTC</createdTime>
+<commentInRDBMS><![CDATA[City id]]></commentInRDBMS>
+<generatorID>3B798264-2B42-B647-E714-FFE2DE3ABF1C</generatorID>
+<ownerDesignName>awesome_inc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="93D027FA-6FD1-235C-AF82-E0137548BE9A" referredColumn="34658EE0-5C6E-E011-AD99-6289A764C727"/>
+</associations>
+</Column>
+<Column name="COUNTRY_ID" id="1D5B3F60-ED0C-CA8E-67AE-C8D262500F60">
+<createdBy>palak</createdBy>
+<createdTime>2023-09-29 02:35:41 UTC</createdTime>
+<commentInRDBMS><![CDATA[Country Id]]></commentInRDBMS>
+<generatorID>4FD18B49-E536-94CA-A219-965153127F4D</generatorID>
+<ownerDesignName>awesome_inc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D92AA08E-2915-3521-CA5F-7C7A4044DC8F" referredColumn="F906159F-32A6-A486-AEF0-48F2DDB61E5C"/>
+</associations>
+</Column>
+<Column name="REGION_ID" id="EE130FC4-CC7B-9E29-EBF3-AD865B93ED1A">
+<createdBy>palak</createdBy>
+<createdTime>2023-09-29 02:35:41 UTC</createdTime>
+<commentInRDBMS><![CDATA[Region Id]]></commentInRDBMS>
+<generatorID>35E748E0-05BD-92D0-8015-1289CD471248</generatorID>
+<ownerDesignName>awesome_inc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B40EBB40-BDE7-05B8-8787-E6BAFEDB9FD0" referredColumn="57425273-67D7-1F89-D34C-4B7FF016F40F"/>
+</associations>
+</Column>
+<Column name="POSTAL_CODE" id="7D01C864-6E7C-2C79-1CD0-17CDE03D73FE">
+<createdBy>palak</createdBy>
+<createdTime>2023-09-29 02:35:41 UTC</createdTime>
+<commentInRDBMS><![CDATA[Postal code]]></commentInRDBMS>
+<generatorID>C24C2C6D-90BC-B37E-248B-F5CD56D47C47</generatorID>
+<ownerDesignName>awesome_inc_model</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="STATE_ID" id="45AE86BC-CB64-1999-66C2-0322D419FFC1">
+<createdBy>palak</createdBy>
+<createdTime>2023-09-29 02:35:41 UTC</createdTime>
+<commentInRDBMS><![CDATA[State Id]]></commentInRDBMS>
+<generatorID>DAB9E06A-FF36-B92D-F21C-015BD7FED593</generatorID>
+<ownerDesignName>awesome_inc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="361EE464-459F-8DA9-9A9F-47337DCCD1BF" referredColumn="79914165-E3C0-58AA-9855-11536B182C4E"/>
+</associations>
+</Column>
+<Column name="CUST_ID" id="B0C60B10-BC69-2086-EA29-AC7326100F8E">
+<createdBy>palak</createdBy>
+<createdTime>2023-09-29 02:35:41 UTC</createdTime>
+<commentInRDBMS><![CDATA[Customer Id ]]></commentInRDBMS>
+<generatorID>4638410D-AE6D-202E-FDC1-08662AF0E3ED</generatorID>
+<ownerDesignName>awesome_inc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0BDF5366-42C8-D4C3-D130-1E0DB3368C7E" referredColumn="EBF8CCA9-1158-7E73-DB36-56C9C919AF40"/>
+</associations>
+</Column>
+<Column name="TBL_LAST_DT" id="D2AD3D8F-7BED-16FC-1D7E-57AA1689488D">
+<createdBy>palak</createdBy>
+<createdTime>2023-09-29 02:35:41 UTC</createdTime>
+<commentInRDBMS><![CDATA[Timestamp for the row data added]]></commentInRDBMS>
+<generatorID>504DE71A-CB72-0DE9-DF43-2F58B6A95EE8</generatorID>
+<ownerDesignName>awesome_inc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CE0F290A-0D38-66D0-BCED-266A01225802" name="PKBC_ADDRESS_PK">
+<createdBy>palak</createdBy>
+<createdTime>2023-09-29 02:35:41 UTC</createdTime>
+<generatorID>31B1006C-B64C-9C10-3C45-CEFCF7A4A844</generatorID>
+<ownerDesignName>awesome_inc_model</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0DA18C14-D5F8-10A1-384D-2BF702638DFA"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D46C25A4-B93A-2C56-5FE9-DB25708FBBCF" name="PKBC_ADDRESS_PKBC_CITY_FK">
+<createdBy>palak</createdBy>
+<createdTime>2023-09-29 02:35:41 UTC</createdTime>
+<generatorID>08EADC51-8F11-DF2E-4802-749C6797940F</generatorID>
+<ownerDesignName>awesome_inc_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0E7A7346-BDF6-BF95-9F60-95D4A893276B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="BAD75FBD-0C03-9A47-72E7-739FF61E81A7" name="PKBC_ADDRESS_PKBC_STATE_FK">
+<createdBy>palak</createdBy>
+<createdTime>2023-09-29 02:35:41 UTC</createdTime>
+<generatorID>CE968B5F-C8C6-5B6B-7D78-2842937ED0C4</generatorID>
+<ownerDesignName>awesome_inc_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="45AE86BC-CB64-1999-66C2-0322D419FFC1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E66EA3D3-4E68-9D52-BE7F-9FFC42693FE5" name="PKBC_ADDRESS_PKBC_COUNTRY_FK">
+<createdBy>palak</createdBy>
+<createdTime>2023-09-29 02:35:41 UTC</createdTime>
+<generatorID>E9F464B1-8EFD-A6B5-965A-E8EFC35E59AC</generatorID>
+<ownerDesignName>awesome_inc_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1D5B3F60-ED0C-CA8E-67AE-C8D262500F60"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7C8BFAB1-A854-A628-4770-95112BA9C2FE" name="PKBC_ADDRESS_PKBC_REGION_FK">
+<createdBy>palak</createdBy>
+<createdTime>2023-09-29 02:35:41 UTC</createdTime>
+<generatorID>B1E75245-1B8E-6527-83CD-3CA5C59EB3B4</generatorID>
+<ownerDesignName>awesome_inc_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EE130FC4-CC7B-9E29-EBF3-AD865B93ED1A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5CCB9BBA-49B9-6797-2E48-F600989DEDF7" name="PKBC_ADDRESS_PKBC_CUSTOMER_FK">
+<createdBy>palak</createdBy>
+<createdTime>2023-09-29 02:35:41 UTC</createdTime>
+<generatorID>6322C3C9-D03E-5FA4-9C7D-185B8ED5158D</generatorID>
+<ownerDesignName>awesome_inc_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B0C60B10-BC69-2086-EA29-AC7326100F8E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
