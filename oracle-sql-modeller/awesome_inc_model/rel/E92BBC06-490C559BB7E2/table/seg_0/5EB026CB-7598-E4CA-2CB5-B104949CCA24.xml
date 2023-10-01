@@ -47,6 +47,30 @@
 <ownDataTypeParameters>,2,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="EMAIL" id="60AB68FB-70A1-E3B3-013F-E4D2DE8C9263">
+<createdBy>briancatraguna</createdBy>
+<createdTime>2023-10-01 22:50:07 UTC</createdTime>
+<commentInRDBMS><![CDATA[Email of the customer]]></commentInRDBMS>
+<ownerDesignName>awesome_inc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PASSWORD" id="D0A86F4C-DFED-1702-DE83-6F63892457C9">
+<createdBy>briancatraguna</createdBy>
+<createdTime>2023-10-01 22:50:26 UTC</createdTime>
+<commentInRDBMS><![CDATA[Password of the login of the customer]]></commentInRDBMS>
+<ownerDesignName>awesome_inc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
 <Column name="TBL_LAST_DT" id="C9FC36D7-08DC-B924-C543-533F5A06D7FC">
 <createdBy>palak</createdBy>
 <createdTime>2023-09-29 02:35:41 UTC</createdTime>
