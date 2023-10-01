@@ -23,13 +23,17 @@ insert into pkbc_city(
 insert into pkbc_customer(
         cust_id     ,
         cust_name   ,
-        segment     
+        segment     ,
+        email		,
+        `password`	
 ) select distinct `Customer ID`, `Customer Name`, 
 	CASE WHEN `Segment` = 'Consumer'  THEN 1
 		WHEN `Segment` = 'Corporate'  THEN 2
 		WHEN `Segment` = 'Home Office'  THEN 3
         ELSE 0 
-	END `Segment Code`
+	END `Segment Code`,
+    CONCAT(`Customer ID`, '@gmail.com'),
+    CONCAT('pass_', `Customer ID`)
 	from pkbc_awesome_inc_orders;
 
   

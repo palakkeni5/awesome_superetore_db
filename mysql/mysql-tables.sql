@@ -57,6 +57,8 @@ CREATE TABLE pkbc_customer (
     cust_id     VARCHAR(20) NOT NULL COMMENT 'Customer Id.',
     cust_name   VARCHAR(100) NOT NULL COMMENT 'Customer name',
     segment     TINYINT NOT NULL COMMENT 'Customer Segment. 1: Consumer , 2: Corporate, 3: Home Office',
+    email		VARCHAR(30) NOT NULL COMMENT 'Email of the customer',
+    `password`	VARCHAR(50) NOT NULL COMMENT 'Password of the login of the customer',
     tbl_last_dt DATETIME NOT NULL COMMENT 'Timestamp for the row data added'
 );
 

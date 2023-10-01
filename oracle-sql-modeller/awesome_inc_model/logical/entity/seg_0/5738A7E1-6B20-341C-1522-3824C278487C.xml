@@ -60,6 +60,34 @@
 <dataTypePrecision>2</dataTypePrecision>
 <ownDataTypeParameters>,2,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="EMAIL" id="9BFADD61-019D-D530-9E99-96F61C6082B8">
+<createdBy>briancatraguna</createdBy>
+<createdTime>2023-10-01 22:47:48 UTC</createdTime>
+<commentInRDBMS><![CDATA[Email of the customer]]></commentInRDBMS>
+<ownerDesignName>awesome_inc_model</ownerDesignName>
+<engineerTo>
+<item key="E92BBC06-E9C2-0715-0229-490C559BB7E2" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="PASSWORD" id="3A1E9655-4A99-4901-D233-832D5147682F">
+<createdBy>briancatraguna</createdBy>
+<createdTime>2023-10-01 22:48:58 UTC</createdTime>
+<commentInRDBMS><![CDATA[Password of the login of the customer]]></commentInRDBMS>
+<ownerDesignName>awesome_inc_model</ownerDesignName>
+<engineerTo>
+<item key="E92BBC06-E9C2-0715-0229-490C559BB7E2" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 CHAR</dataTypeSize>
+<ownDataTypeParameters>30 CHAR,,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="TBL_LAST_DT" id="21D503F1-7899-ED6A-F22C-0B73F27E3202">
 <createdBy>palak</createdBy>
 <createdTime>2023-09-24 20:14:28 UTC</createdTime>
