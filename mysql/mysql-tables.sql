@@ -25,6 +25,7 @@ CREATE TABLE pkbc_address (
     country_id  BIGINT NOT NULL
 );
 
+CREATE INDEX cust_id_idx ON pkbc_address (cust_id);
 
 
 CREATE TABLE pkbc_category (
@@ -33,8 +34,6 @@ CREATE TABLE pkbc_category (
     sub_category_name VARCHAR(30) NOT NULL COMMENT 'Product Sub Category Name',
     tbl_last_dt       DATETIME NOT NULL COMMENT 'Timestamp for the row data added'
 );
-
-
 
 
 
@@ -63,7 +62,6 @@ CREATE TABLE pkbc_customer (
 );
 
 
-
 ALTER TABLE pkbc_customer ADD CONSTRAINT pkbc_customer_pk PRIMARY KEY ( cust_id );
 
 CREATE TABLE pkbc_ord_prod (
@@ -83,6 +81,8 @@ CREATE TABLE pkbc_ord_prod (
     ship_date     DATETIME NOT NULL COMMENT 'Shipping Date'
 );
 
+CREATE INDEX cust_id_idx ON pkbc_ord_prod (cust_id);
+CREATE INDEX product_id_idx ON pkbc_ord_prod (product_id);
 
 
 CREATE TABLE pkbc_orders ( 
@@ -103,6 +103,7 @@ CREATE TABLE pkbc_product (
     tbl_last_dt  DATETIME NOT NULL COMMENT 'Timestamp for the row data added'
 );
 
+CREATE INDEX category_idx ON pkbc_product (category_id);
 
 ALTER TABLE pkbc_product ADD CONSTRAINT pkbc_product_pk PRIMARY KEY ( product_id,
                                                                       market );
