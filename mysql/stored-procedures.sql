@@ -4,7 +4,7 @@ drop procedure if exists USP_UpsertCustomer;
 delimiter $$
 create procedure USP_UpsertCustomer
 (
-	in cust_name VARCHAR(100), in segment int, in email varchar(30), in `password` varchar(50)
+	in cust_name VARCHAR(100), in segment int, in email varchar(30), in `password` varchar(100)
 )
 begin
 declare cust_id VARCHAR(20);
