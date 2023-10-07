@@ -58,6 +58,21 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="COUNTRY_ID" id="A541521C-AC07-3A76-B6A2-5D2352EE2DCB">
+<createdBy>briancatraguna</createdBy>
+<createdTime>2023-10-07 16:47:39 UTC</createdTime>
+<generatorID>B4863370-2620-126E-BD4B-9A5F0E211C06</generatorID>
+<ownerDesignName>awesome_inc_model</ownerDesignName>
+<engineerTo>
+<item key="E92BBC06-E9C2-0715-0229-490C559BB7E2" value="true"/>
+</engineerTo>
+<referedAttribute>9A3AFCC8-21C6-7936-5198-0A740A87E709</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="6E3AAB31-EB9B-5EE3-F4D4-C9C2226F86E6" name="PKBC_CITY PK">
