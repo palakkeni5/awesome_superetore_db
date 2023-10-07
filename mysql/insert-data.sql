@@ -1,24 +1,27 @@
 insert into pkbc_region(
         region_name
-) select distinct region from pkbc_awesome_inc_orders ;
+) select distinct region from pkbc_awesome_inc_orders;
+
 
 insert into pkbc_country(
-        country_name   
-) select distinct 
-		a.Country
- from  pkbc_awesome_inc_orders a; 
+        country_name 
+) select distinct country from pkbc_awesome_inc_orders;
+
  
 insert into pkbc_state(
-        state_name
-) select distinct 
-		a.state
- from pkbc_awesome_inc_orders a;
+        state_name, country_id
+) select distinct a.state, c.country_id from pkbc_awesome_inc_orders a
+left join (select distinct c.country_id, a.country
+from pkbc_country c
+inner join pkbc_awesome_inc_orders a on c.country_name = a.country) c on c.country = a.country;
+
 
 insert into pkbc_city(
-        city_name
-) select distinct 
-		a.City 
- from pkbc_awesome_inc_orders a ; 
+        city_name, state_id
+) select distinct a.city, s.state_id from pkbc_awesome_inc_orders a
+left join (select distinct s.state_id, a.state
+from pkbc_state s
+inner join pkbc_awesome_inc_orders a on s.state_name = a.state) s on s.state = a.state;
  
 insert into pkbc_customer(
         cust_id     ,
@@ -41,20 +44,17 @@ insert into pkbc_address(
 	city_id      ,        
 	region_id    ,
     postal_code  ,
-	state_id     ,
 	cust_id      ,
 	 country_id    
 )  select distinct
 	city_id      ,  
 	region_id     , 
 	`Postal Code`   , 
-	state_id    	,
 	cust_id     ,
 	country_id  
 from pkbc_awesome_inc_orders a
 	inner join pkbc_city b on a.City = b.city_name
     inner join pkbc_region c on a.Region = c.region_name
-    inner join pkbc_state d on a.State = d.state_name
     inner join pkbc_customer e on a.`Customer ID` = e.cust_id
     inner join pkbc_country f on a.Country = f.country_name;
     
@@ -152,11 +152,10 @@ insert into pkbc_ord_prod(
 			select addr_id from pkbc_address b
 				where b.city_id in (select c.city_id from pkbc_city c where a.City = c.city_name) 
                 and	  b.region_id in (select d.region_id from pkbc_region d where a.Region = d.region_name )
-                and	  b.state_id in (select e.state_id from pkbc_state e where a.State = e.state_name )
                 and   b.cust_id in (select f.cust_id from pkbc_customer f where a.`Customer ID` = f.cust_id )
                 and   b.country_id  in (select g.country_id from pkbc_country g where a.Country = g.country_name )
-                and   b.postal_code = a.`Postal Code`
-        ) as addr_id ,
+                and   b.postal_code = a.`Postal Code` limit 1
+        ) as addr_id,
 		a.`Customer ID` ,
 		case when `Ship Mode` = 'First Class' then 1  
 			 when `Ship Mode` = 'Second Class' then 2 
