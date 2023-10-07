@@ -119,6 +119,7 @@ CREATE TABLE pkbc_region (
 CREATE TABLE pkbc_state (
     state_id    BIGINT NOT NULL  PRIMARY KEY AUTO_INCREMENT COMMENT 'state id',
     state_name  VARCHAR(50) NOT NULL COMMENT 'State Name',
+    country_id BIGINT NOT NULL COMMENT 'Country id',
     tbl_last_dt DATETIME NOT NULL COMMENT 'Timestamp for the row data added'
 );
 
@@ -147,6 +148,10 @@ ALTER TABLE pkbc_address
 ALTER TABLE pkbc_country
 	ADD CONSTRAINT pkbc_country_pkbc_region_fk FOREIGN KEY ( region_id )
 		REFERENCES pkbc_region ( region_id );
+        
+ALTER TABLE pkbc_state
+	ADD CONSTRAINT pkbc_state_pkbc_country_fk FOREIGN KEY ( country_id )
+		REFERENCES pkbc_country ( country_id );
 
 ALTER TABLE pkbc_ord_prod
     ADD CONSTRAINT pkbc_ord_prod_pkbc_address_fk FOREIGN KEY ( addr_id )
