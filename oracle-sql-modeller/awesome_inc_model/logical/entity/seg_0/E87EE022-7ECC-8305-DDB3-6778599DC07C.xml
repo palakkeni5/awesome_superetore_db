@@ -15,7 +15,7 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="ORD_PROD_ID" id="30B2DA36-C6FC-65D1-1D3E-CE01F65B0FF8">
+<Attribute name="ROW_ID" id="30B2DA36-C6FC-65D1-1D3E-CE01F65B0FF8">
 <createdBy>palak</createdBy>
 <createdTime>2023-09-29 02:31:26 UTC</createdTime>
 <ownerDesignName>awesome_inc_model</ownerDesignName>
@@ -121,7 +121,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>40</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>40,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="PRODUCT_ID" id="7A822B22-BF2E-8734-1C20-A2936B3E8004">
 <createdBy>palak</createdBy>
@@ -139,7 +139,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>20</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="TBL_LAST_DT" id="C57A8E7B-08A1-57F9-5687-1C83ECE80362">
 <createdBy>palak</createdBy>
@@ -167,7 +167,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>10</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="CUST_ID" id="A95DE8EC-9611-1757-B505-9B5160A04F07">
 <createdBy>palak</createdBy>
@@ -182,7 +182,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>20</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="SHIP_DATE" id="4D73E781-64CB-C585-32DE-DC9E084C4930">
 <createdBy>palak</createdBy>
