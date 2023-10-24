@@ -31,7 +31,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>10</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
@@ -48,7 +48,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>10</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
@@ -65,7 +65,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>10</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
@@ -86,23 +86,6 @@
 <ownDataTypeParameters>10,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="STATE_ID" id="45AE86BC-CB64-1999-66C2-0322D419FFC1">
-<createdBy>palak</createdBy>
-<createdTime>2023-09-29 02:35:41 UTC</createdTime>
-<commentInRDBMS><![CDATA[State Id]]></commentInRDBMS>
-<generatorID>DAB9E06A-FF36-B92D-F21C-015BD7FED593</generatorID>
-<ownerDesignName>awesome_inc_model</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>10</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="361EE464-459F-8DA9-9A9F-47337DCCD1BF" referredColumn="79914165-E3C0-58AA-9855-11536B182C4E"/>
-</associations>
-</Column>
 <Column name="CUST_ID" id="B0C60B10-BC69-2086-EA29-AC7326100F8E">
 <createdBy>palak</createdBy>
 <createdTime>2023-09-29 02:35:41 UTC</createdTime>
@@ -113,7 +96,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>20</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
 <previousColumn>false</previousColumn>
 <autoIncrementCycle>false</autoIncrementCycle>
 <associations>
@@ -155,17 +138,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="0E7A7346-BDF6-BF95-9F60-95D4A893276B"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="BAD75FBD-0C03-9A47-72E7-739FF61E81A7" name="PKBC_ADDRESS_PKBC_STATE_FK">
-<createdBy>palak</createdBy>
-<createdTime>2023-09-29 02:35:41 UTC</createdTime>
-<generatorID>CE968B5F-C8C6-5B6B-7D78-2842937ED0C4</generatorID>
-<ownerDesignName>awesome_inc_model</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="45AE86BC-CB64-1999-66C2-0322D419FFC1"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="E66EA3D3-4E68-9D52-BE7F-9FFC42693FE5" name="PKBC_ADDRESS_PKBC_COUNTRY_FK">
