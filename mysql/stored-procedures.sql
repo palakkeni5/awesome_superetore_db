@@ -104,10 +104,12 @@ create procedure USP_GetAddressByCustomer(
 	in cust_id VARCHAR(20)
 )
 begin
-select a.addr_id, a.city_id, a.country_id, a.region_id, a.postal_code, s.state_id
+select a.addr_id, c.city_name, s.state_name, co.country_name, r.region_name, a.postal_code
 from pkbc_address a 
 left join pkbc_city c on a.city_id = c.city_id
 left join pkbc_state s on s.state_id = c.state_id
+left join pkbc_country co on co.country_id = s.country_id
+left join pkbc_region r on a.region_id = r.region_id
 where a.cust_id = cust_id;
 end$$
 
@@ -131,6 +133,26 @@ a.region_id = region_id,
 a.postal_code = postal_code
 where a.addr_id = addr_id;
 select a.addr_id, a.city_id, a.country_id, a.region_id, a.postal_code, a.cust_id from pkbc_address a where a.addr_id = addr_id;
+end$$
+
+delimiter ;
+
+drop procedure if exists USP_UpdateCustomer;
+delimiter $$
+create procedure USP_UpdateCustomer(
+	in cust_id VARCHAR(20),
+    in cust_name VARCHAR(100), 
+    in segment int, 
+    in email varchar(30)
+)
+begin
+update pkbc_customer c
+set
+c.cust_name = cust_name,
+c.segment = segment,
+c.email = email
+where c.cust_id = cust_id;
+select c.cust_id, c.cust_name, c.segment, c.email from pkbc_customer c where c.cust_id = cust_id;
 end$$
 
 delimiter ;
