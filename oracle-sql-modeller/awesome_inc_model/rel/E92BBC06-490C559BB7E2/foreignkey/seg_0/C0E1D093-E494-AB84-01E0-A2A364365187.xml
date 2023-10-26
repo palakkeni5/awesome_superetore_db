@@ -1,8 +1,8 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="B40EBB40-BDE7-05B8-8787-E6BAFEDB9FD0" containerWithKeyObject="BF738461-50D6-1323-30D2-AB539E13B72B" localFKIndex="7C8BFAB1-A854-A628-4770-95112BA9C2FE" name="PKBC_ADDRESS_PKBC_REGION_FK">
-<createdBy>palak</createdBy>
-<createdTime>2023-09-29 02:35:41 UTC</createdTime>
-<generatorID>B1E75245-1B8E-6527-83CD-3CA5C59EB3B4</generatorID>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C0E1D093-E494-AB84-01E0-A2A364365187" containerWithKeyObject="C26184A8-A15A-55C4-ED26-C818C7027B49" localFKIndex="4D614BFC-C59E-DAF4-7513-49A02147398C" name="PKBC_COUNTRY_PKBC_REGION_FK">
+<createdBy>briancatraguna</createdBy>
+<createdTime>2023-10-26 02:28:49 UTC</createdTime>
+<generatorID>19B63853-FEAC-579D-0E5F-42695DDA233D</generatorID>
 <ownerDesignName>awesome_inc_model</ownerDesignName>
 <referredTableLongName>PKBC_REGION</referredTableLongName>
 <deleteRule>NO ACTION</deleteRule>

@@ -38,40 +38,6 @@
 <colAssociation fkAssociation="93D027FA-6FD1-235C-AF82-E0137548BE9A" referredColumn="34658EE0-5C6E-E011-AD99-6289A764C727"/>
 </associations>
 </Column>
-<Column name="COUNTRY_ID" id="1D5B3F60-ED0C-CA8E-67AE-C8D262500F60">
-<createdBy>palak</createdBy>
-<createdTime>2023-09-29 02:35:41 UTC</createdTime>
-<commentInRDBMS><![CDATA[Country Id]]></commentInRDBMS>
-<generatorID>4FD18B49-E536-94CA-A219-965153127F4D</generatorID>
-<ownerDesignName>awesome_inc_model</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>10</dataTypePrecision>
-<ownDataTypeParameters>,10,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="D92AA08E-2915-3521-CA5F-7C7A4044DC8F" referredColumn="F906159F-32A6-A486-AEF0-48F2DDB61E5C"/>
-</associations>
-</Column>
-<Column name="REGION_ID" id="EE130FC4-CC7B-9E29-EBF3-AD865B93ED1A">
-<createdBy>palak</createdBy>
-<createdTime>2023-09-29 02:35:41 UTC</createdTime>
-<commentInRDBMS><![CDATA[Region Id]]></commentInRDBMS>
-<generatorID>35E748E0-05BD-92D0-8015-1289CD471248</generatorID>
-<ownerDesignName>awesome_inc_model</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT019</logicalDatatype>
-<dataTypePrecision>10</dataTypePrecision>
-<ownDataTypeParameters>,10,</ownDataTypeParameters>
-<previousColumn>false</previousColumn>
-<autoIncrementCycle>false</autoIncrementCycle>
-<associations>
-<colAssociation fkAssociation="B40EBB40-BDE7-05B8-8787-E6BAFEDB9FD0" referredColumn="57425273-67D7-1F89-D34C-4B7FF016F40F"/>
-</associations>
-</Column>
 <Column name="POSTAL_CODE" id="7D01C864-6E7C-2C79-1CD0-17CDE03D73FE">
 <createdBy>palak</createdBy>
 <createdTime>2023-09-29 02:35:41 UTC</createdTime>
@@ -138,28 +104,6 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="0E7A7346-BDF6-BF95-9F60-95D4A893276B"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="E66EA3D3-4E68-9D52-BE7F-9FFC42693FE5" name="PKBC_ADDRESS_PKBC_COUNTRY_FK">
-<createdBy>palak</createdBy>
-<createdTime>2023-09-29 02:35:41 UTC</createdTime>
-<generatorID>E9F464B1-8EFD-A6B5-965A-E8EFC35E59AC</generatorID>
-<ownerDesignName>awesome_inc_model</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="1D5B3F60-ED0C-CA8E-67AE-C8D262500F60"/>
-</indexColumnUsage>
-</ind_PK_UK>
-<ind_PK_UK id="7C8BFAB1-A854-A628-4770-95112BA9C2FE" name="PKBC_ADDRESS_PKBC_REGION_FK">
-<createdBy>palak</createdBy>
-<createdTime>2023-09-29 02:35:41 UTC</createdTime>
-<generatorID>B1E75245-1B8E-6527-83CD-3CA5C59EB3B4</generatorID>
-<ownerDesignName>awesome_inc_model</ownerDesignName>
-<indexState>Foreign Key</indexState>
-<isSurrogateKey>false</isSurrogateKey>
-<indexColumnUsage>
-<colUsage columnID="EE130FC4-CC7B-9E29-EBF3-AD865B93ED1A"/>
 </indexColumnUsage>
 </ind_PK_UK>
 <ind_PK_UK id="5CCB9BBA-49B9-6797-2E48-F600989DEDF7" name="PKBC_ADDRESS_PKBC_CUSTOMER_FK">

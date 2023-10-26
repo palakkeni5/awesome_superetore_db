@@ -46,6 +46,21 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
+<Column name="REGION_ID" id="625577B6-D897-9148-FF88-D250C94D4495">
+<createdBy>briancatraguna</createdBy>
+<createdTime>2023-10-26 02:28:49 UTC</createdTime>
+<ownerDesignName>awesome_inc_model</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C0E1D093-E494-AB84-01E0-A2A364365187" referredColumn="57425273-67D7-1F89-D34C-4B7FF016F40F"/>
+</associations>
+</Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
 <ind_PK_UK id="758F4A94-C6D9-B476-76BB-823DEBC6B285" name="PKBC_COUNTRY_PK">
@@ -58,6 +73,17 @@
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
 <colUsage columnID="F906159F-32A6-A486-AEF0-48F2DDB61E5C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4D614BFC-C59E-DAF4-7513-49A02147398C" name="PKBC_COUNTRY_PKBC_REGION_FK">
+<createdBy>briancatraguna</createdBy>
+<createdTime>2023-10-26 02:28:49 UTC</createdTime>
+<generatorID>19B63853-FEAC-579D-0E5F-42695DDA233D</generatorID>
+<ownerDesignName>awesome_inc_model</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="625577B6-D897-9148-FF88-D250C94D4495"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
