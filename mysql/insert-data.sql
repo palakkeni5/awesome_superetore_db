@@ -4,8 +4,11 @@ insert into pkbc_region(
 
 
 insert into pkbc_country(
-        country_name 
-) select distinct country from pkbc_awesome_inc_orders;
+        country_name, region_id
+) select distinct a.country, r.region_id from pkbc_awesome_inc_orders a
+left join (select distinct r.region_id, a.region
+from pkbc_region r
+inner join pkbc_awesome_inc_orders a on r.region_name = a.region) r on r.region = a.region;
 
  
 insert into pkbc_state(
@@ -42,21 +45,16 @@ insert into pkbc_customer(
   
 insert into pkbc_address(
 	city_id      ,        
-	region_id    ,
     postal_code  ,
-	cust_id      ,
-	 country_id    
-)  select distinct
+	cust_id       
+) select distinct
 	city_id      ,  
-	region_id     , 
 	`Postal Code`   , 
-	cust_id     ,
-	country_id  
+	cust_id     
 from pkbc_awesome_inc_orders a
 	inner join pkbc_city b on a.City = b.city_name
     inner join pkbc_region c on a.Region = c.region_name
-    inner join pkbc_customer e on a.`Customer ID` = e.cust_id
-    inner join pkbc_country f on a.Country = f.country_name;
+    inner join pkbc_customer e on a.`Customer ID` = e.cust_id;
     
 
  insert into pkbc_category(
@@ -160,10 +158,14 @@ insert into pkbc_ord_prod(
 		end as market ,
 		(
 			select addr_id from pkbc_address b
-				where b.city_id in (select c.city_id from pkbc_city c where a.City = c.city_name) 
-                and	  b.region_id in (select d.region_id from pkbc_region d where a.Region = d.region_name )
+				inner join pkbc_city c on c.city_id = b.city_id
+                inner join pkbc_state s on s.state_id = c.state_id
+                inner join pkbc_country co on co.country_id = s.country_id
+                inner join pkbc_region r on r.region_id = co.region_id
+				where c.city_id in (select c.city_id from pkbc_city c where a.City = c.city_name) 
+                and	  r.region_id in (select d.region_id from pkbc_region d where a.Region = d.region_name )
                 and   b.cust_id in (select f.cust_id from pkbc_customer f where a.`Customer ID` = f.cust_id )
-                and   b.country_id  in (select g.country_id from pkbc_country g where a.Country = g.country_name )
+                and   co.country_id  in (select g.country_id from pkbc_country g where a.Country = g.country_name )
                 and   b.postal_code = a.`Postal Code` limit 1
         ) as addr_id,
 		a.`Customer ID` ,

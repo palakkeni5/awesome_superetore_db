@@ -19,11 +19,9 @@ DROP TABLE IF EXISTS pkbc_region;
 CREATE TABLE pkbc_address (
     addr_id     BIGINT PRIMARY KEY AUTO_INCREMENT COMMENT 'Address ID',
     city_id     BIGINT NOT NULL COMMENT 'City id',
-    region_id   BIGINT NOT NULL COMMENT 'Region Id',
     postal_code VARCHAR(10) COMMENT 'Postal code',
     cust_id     VARCHAR(20) NOT NULL COMMENT 'Customer Id ',
-    tbl_last_dt DATETIME NOT NULL COMMENT 'Timestamp for the row data added',
-    country_id  BIGINT NOT NULL
+    tbl_last_dt DATETIME NOT NULL COMMENT 'Timestamp for the row data added'
 );
 
 CREATE INDEX cust_id_idx ON pkbc_address (cust_id);
@@ -55,6 +53,7 @@ CREATE TABLE pkbc_city (
 CREATE TABLE pkbc_country (
     country_id   BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Country id',
     country_name VARCHAR(50) NOT NULL COMMENT 'Country Name',
+    region_id 	 BIGINT NOT NULL COMMENT 'Region id',
     tbl_last_dt  DATETIME NOT NULL COMMENT 'Timestamp for the row data added'
 );
 
@@ -136,16 +135,12 @@ ALTER TABLE pkbc_address
         REFERENCES pkbc_city ( city_id );
 
 ALTER TABLE pkbc_address
-    ADD CONSTRAINT pkbc_address_pkbc_country_fk FOREIGN KEY ( country_id )
-        REFERENCES pkbc_country ( country_id );
-
-ALTER TABLE pkbc_address
     ADD CONSTRAINT pkbc_address_pkbc_customer_fk FOREIGN KEY ( cust_id )
         REFERENCES pkbc_customer ( cust_id );
-
-ALTER TABLE pkbc_address
-    ADD CONSTRAINT pkbc_address_pkbc_region_fk FOREIGN KEY ( region_id )
-        REFERENCES pkbc_region ( region_id );
+        
+ALTER TABLE pkbc_country
+	ADD CONSTRAINT pkbc_country_pkbc_region_fk FOREIGN KEY ( region_id )
+		REFERENCES pkbc_region ( region_id );
         
 ALTER TABLE pkbc_state
 	ADD CONSTRAINT pkbc_state_pkbc_country_fk FOREIGN KEY ( country_id )

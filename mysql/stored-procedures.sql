@@ -41,11 +41,22 @@ end$$
 
 delimiter ;
 
-drop procedure if exists USP_GetAllCountries;
+drop procedure if exists USP_GetAllRegions;
 delimiter $$
-create procedure USP_GetAllCountries()
+create procedure USP_GetAllRegions()
 begin
-select country_id, country_name from pkbc_country;
+select region_id, region_name from pkbc_region;
+end$$
+
+delimiter ;
+
+drop procedure if exists USP_GetAllCountriesByRegion;
+delimiter $$
+create procedure USP_GetAllCountriesByRegion(
+	in region_id int
+)
+begin
+select c.country_id, c.country_name from pkbc_country c where c.region_id = region_id;
 end$$
 
 delimiter ;
