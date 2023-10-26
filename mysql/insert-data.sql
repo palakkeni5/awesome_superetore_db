@@ -60,18 +60,25 @@ from pkbc_awesome_inc_orders a
     
 
  insert into pkbc_category(
-        category_name       ,
-        sub_category_name   
+        category_name    
 ) select distinct	
-		Category,
-        `Sub-Category`
+		Category
  from pkbc_awesome_inc_orders;
+ 
+ insert into pkbc_sub_category(
+        sub_category_name       ,
+        category_id   
+) select distinct	
+		a.`Sub-Category`,
+        (select b.category_id from pkbc_category b where b.category_name = a.`Category`) 
+        as category_id
+ from pkbc_awesome_inc_orders a;
  
 insert into pkbc_product(
         product_id   ,
         product_name ,
         market       ,
-        category_id 
+        sub_category_id 
 )  select distinct
 	`Product ID`,
     `Product Name`,
@@ -83,8 +90,11 @@ insert into pkbc_product(
         else 0
 	end as Market ,
     (
-		select category_id from pkbc_category b where a.Category = b.category_name and a.`Sub-Category` = b.sub_category_name
-    ) as category_id
+		select sub_category_id 
+        from pkbc_sub_category b 
+        where a.`Sub-Category` = b.sub_category_name
+        and a.Category in ( select c.category_name from pkbc_category c where b.category_id = c.category_id) 
+    ) as sub_category_id
  from pkbc_awesome_inc_orders a  ;
  
  
