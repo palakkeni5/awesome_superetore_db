@@ -3,6 +3,8 @@ use awesome_inc;
 
 DROP TABLE IF EXISTS pkbc_ord_prod;
 DROP TABLE IF EXISTS pkbc_product;
+DROP TABLE IF EXISTS pkbc_sub_category;
+DROP TABLE IF EXISTS pkbc_category;
 DROP TABLE IF EXISTS pkbc_category;
 DROP TABLE IF EXISTS pkbc_orders;
 DROP TABLE IF EXISTS pkbc_address;
@@ -27,10 +29,15 @@ CREATE TABLE pkbc_address (
 CREATE INDEX cust_id_idx ON pkbc_address (cust_id);
 
 
+CREATE TABLE pkbc_sub_category (
+    sub_category_id       INT NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Sub Category id.',
+    sub_category_name     VARCHAR(30) NOT NULL COMMENT 'Product Sub Category Name',
+    category_id       INT NOT NULL COMMENT 'Category id.',
+    tbl_last_dt       DATETIME NOT NULL COMMENT 'Timestamp for the row data added'
+);
 CREATE TABLE pkbc_category (
     category_id       INT NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Category id.',
     category_name     VARCHAR(30) NOT NULL COMMENT 'Product Category Name',
-    sub_category_name VARCHAR(30) NOT NULL COMMENT 'Product Sub Category Name',
     tbl_last_dt       DATETIME NOT NULL COMMENT 'Timestamp for the row data added'
 );
 
@@ -99,11 +106,11 @@ CREATE TABLE pkbc_product (
     product_id   VARCHAR(20) NOT NULL COMMENT 'Product  id.',
     product_name VARCHAR(200) NOT NULL COMMENT 'Product Name',
     market       TINYINT NOT NULL COMMENT 'Product Market. 1: Africa, 2: Asia Pacific, 3: Europe, 4: LATAM, 5: USCA',
-    category_id  INT NOT NULL COMMENT 'Category Id',
+    sub_category_id  INT NOT NULL COMMENT 'Category Id',
     tbl_last_dt  DATETIME NOT NULL COMMENT 'Timestamp for the row data added'
 );
 
-CREATE INDEX category_idx ON pkbc_product (category_id);
+CREATE INDEX product_id_idx ON pkbc_product (product_id);
 
 ALTER TABLE pkbc_product ADD CONSTRAINT pkbc_product_pk PRIMARY KEY ( product_id,
                                                                       market );
@@ -167,7 +174,11 @@ ALTER TABLE pkbc_ord_prod
         REFERENCES pkbc_customer ( cust_id );
 
 ALTER TABLE pkbc_product
-    ADD CONSTRAINT pkbc_product_pkbc_category_fk FOREIGN KEY ( category_id )
+    ADD CONSTRAINT pkbc_sub_category_fk FOREIGN KEY ( sub_category_id )
+        REFERENCES pkbc_sub_category ( sub_category_id );
+        
+ALTER TABLE pkbc_sub_category
+    ADD CONSTRAINT pkbc_category_fk FOREIGN KEY ( category_id )
         REFERENCES pkbc_category ( category_id );
 
 

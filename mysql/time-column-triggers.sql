@@ -54,6 +54,33 @@ CREATE TRIGGER `TU_category_default_date`
 	END$$;
 DELIMITER ;
 
+-- pkbc_sub_category TABLE TRIGGER
+
+DROP TRIGGER IF EXISTS TI_sub_category_default_date;
+
+DELIMITER $$
+CREATE TRIGGER `TI_sub_category_default_date` 
+	BEFORE INSERT ON `pkbc_sub_category` 
+	FOR EACH ROW
+	BEGIN
+		if ( isnull(new.tbl_last_dt) ) then
+			set new.tbl_last_dt=current_timestamp();
+		end if;
+	END$$;
+DELIMITER ;
+
+DROP TRIGGER IF EXISTS TU_sub_category_default_date;
+
+
+DELIMITER $$
+CREATE TRIGGER `TU_sub_category_default_date` 
+	BEFORE UPDATE ON `pkbc_sub_category` 
+	FOR	EACH ROW
+	BEGIN
+		set NEW.tbl_last_dt=current_timestamp();
+	END$$;
+DELIMITER ;
+
 
 
 -- pkbc_city TABLE TRIGGER

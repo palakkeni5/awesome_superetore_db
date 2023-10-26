@@ -95,6 +95,21 @@
 <logicalDatatype>LOGDT007</logicalDatatype>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="SUB_CATEGORY_ID" id="9344DD81-F271-22CB-4A62-A41E9B35F937">
+<createdBy>palak</createdBy>
+<createdTime>2023-10-25 20:56:50 UTC</createdTime>
+<generatorID>7A91F50F-1C38-CD5A-272B-F3DDC23E7960</generatorID>
+<ownerDesignName>awesome_inc_model</ownerDesignName>
+<engineerTo>
+<item key="E92BBC06-E9C2-0715-0229-490C559BB7E2" value="true"/>
+</engineerTo>
+<referedAttribute>E1DC1BD1-1DF2-1F22-6A44-A78F16405DA3</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="8E197A5F-85DC-FDC0-614C-79DA3C9F2563" name="PKBC_PRODUCT PK">
