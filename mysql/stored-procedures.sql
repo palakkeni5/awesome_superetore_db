@@ -96,15 +96,13 @@ drop procedure if exists USP_UpsertAddress;
 delimiter $$
 create procedure USP_UpsertAddress(
 	in city_id int,
-    in country_id int,
-    in region_id int,
     in postal_code VARCHAR(10),
     in cust_id VARCHAR(20)
 )
 begin
-insert into pkbc_address (city_id, country_id, region_id, postal_code, cust_id)
-values (city_id, country_id, region_id, postal_code, cust_id);
-select addr_id, city_id, country_id, region_id, postal_code, cust_id from pkbc_address where addr_id = last_insert_id();
+insert into pkbc_address (city_id, postal_code, cust_id)
+values (city_id, postal_code, cust_id);
+select addr_id, city_id, postal_code, cust_id from pkbc_address where addr_id = last_insert_id();
 end$$
 
 delimiter ;
@@ -167,7 +165,3 @@ select c.cust_id, c.cust_name, c.segment, c.email from pkbc_customer c where c.c
 end$$
 
 delimiter ;
-
-
-
-    
