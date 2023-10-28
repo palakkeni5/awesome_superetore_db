@@ -129,19 +129,15 @@ delimiter $$
 create procedure USP_UpdateAddress(
 	in addr_id int,
 	in city_id int,
-    in country_id int,
-    in region_id int,
     in postal_code VARCHAR(10)
 )
 begin
 update pkbc_address a
 set 
 a.city_id = city_id,
-a.country_id = country_id,
-a.region_id = region_id,
 a.postal_code = postal_code
 where a.addr_id = addr_id;
-select a.addr_id, a.city_id, a.country_id, a.region_id, a.postal_code, a.cust_id from pkbc_address a where a.addr_id = addr_id;
+select a.addr_id, a.city_id, a.postal_code, a.cust_id from pkbc_address a where a.addr_id = addr_id;
 end$$
 
 delimiter ;
