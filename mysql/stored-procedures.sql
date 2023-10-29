@@ -118,7 +118,7 @@ from pkbc_address a
 left join pkbc_city c on a.city_id = c.city_id
 left join pkbc_state s on s.state_id = c.state_id
 left join pkbc_country co on co.country_id = s.country_id
-left join pkbc_region r on a.region_id = r.region_id
+left join pkbc_region r on co.region_id = r.region_id
 where a.cust_id = cust_id;
 end$$
 
