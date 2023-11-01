@@ -178,7 +178,7 @@ end$$
 
 delimiter ;
 
-drop procedure if exists USP_SetAndGetOTPByCustomer;
+drop procedure if exists USP_SetAndGetOTPByEmail;
 delimiter $$
 create procedure USP_SetAndGetOTPByEmail(
 	in email VARCHAR(30)
@@ -188,6 +188,19 @@ update pkbc_customer c
 set c.otp_code = SUBSTRING(MD5(RAND()), 1, 5)
 where c.email = email;
 select c.otp_code from pkbc_customer c where c.email = email;
+end$$
+
+delimiter ;
+
+drop procedure if exists USP_GetCustIdByEmailAndOTP;
+delimiter $$
+create procedure USP_GetCustIdByEmailAndOTP(
+	in email VARCHAR(30),
+    in otp VARCHAR(5)
+)
+begin
+select c.cust_id from pkbc_customer c 
+where c.email = email and c.otp = otp;
 end$$
 
 delimiter ;
