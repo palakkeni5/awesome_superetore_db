@@ -175,5 +175,8 @@ ALTER TABLE pkbc_product
 ALTER TABLE pkbc_sub_category
     ADD CONSTRAINT pkbc_category_fk FOREIGN KEY ( category_id )
         REFERENCES pkbc_category ( category_id );
+        
+ALTER TABLE pkbc_customer
+ADD otp_code VARCHAR(5);
 
 

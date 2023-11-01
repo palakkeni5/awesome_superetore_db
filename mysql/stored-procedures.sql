@@ -177,3 +177,17 @@ where a.addr_id = addr_id;
 end$$
 
 delimiter ;
+
+drop procedure if exists USP_SetAndGetOTPByCustomer;
+delimiter $$
+create procedure USP_SetAndGetOTPByEmail(
+	in email VARCHAR(30)
+)
+begin
+update pkbc_customer c
+set c.otp_code = SUBSTRING(MD5(RAND()), 1, 5)
+where c.email = email;
+select c.otp_code from pkbc_customer c where c.email = email;
+end$$
+
+delimiter ;
