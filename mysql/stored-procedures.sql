@@ -161,3 +161,19 @@ select c.cust_id, c.cust_name, c.segment, c.email from pkbc_customer c where c.c
 end$$
 
 delimiter ;
+
+drop procedure if exists USP_GetAddressById;
+delimiter $$
+create procedure USP_GetAddressById(
+	in addr_id int
+)
+begin
+select a.city_id, s.state_id, co.country_id, r.region_id, a.postal_code, a.cust_id from pkbc_address a 
+left join pkbc_city c on a.city_id = c.city_id
+left join pkbc_state s on c.state_id = s.state_id
+left join pkbc_country co on co.country_id = s.country_id
+left join pkbc_region r on r.region_id = co.region_id
+where a.addr_id = addr_id;
+end$$
+
+delimiter ;
