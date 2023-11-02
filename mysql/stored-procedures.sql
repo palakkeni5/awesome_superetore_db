@@ -148,14 +148,16 @@ create procedure USP_UpdateCustomer(
 	in cust_id VARCHAR(20),
     in cust_name VARCHAR(100), 
     in segment int, 
-    in email varchar(30)
+    in email varchar(30),
+    in `password` varchar(100)
 )
 begin
 update pkbc_customer c
 set
 c.cust_name = cust_name,
 c.segment = segment,
-c.email = email
+c.email = email,
+c.`password` = `password`
 where c.cust_id = cust_id;
 select c.cust_id, c.cust_name, c.segment, c.email from pkbc_customer c where c.cust_id = cust_id;
 end$$
