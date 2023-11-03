@@ -180,3 +180,7 @@ ALTER TABLE pkbc_customer
 ADD otp_code VARCHAR(5);
 
 
+ALTER TABLE pkbc_product 
+ADD COLUMN unit_price DECIMAL(10,2) NOT NULL DEFAULT 0;
+
+

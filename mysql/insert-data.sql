@@ -123,29 +123,41 @@ insert into pkbc_ord_prod(
 		
 ) select 
 		CASE WHEN quantity is NULL or quantity='' then 0  
-			WHEN substring(quantity , 1, 1) = '$' THEN CAST( substring(quantity , 2) AS DECIMAL) 
-            WHEN quantity REGEXP '^[0-9]+$' then quantity 
-			ELSE 0
+			WHEN quantity REGEXP '^[0-9\.]+$' then CAST(quantity as  DECIMAL(10,2) )
+            when SUBSTRING_INDEX(TRIM(quantity),' ',1) REGEXP '^[0-9\.]+$' then CAST(SUBSTRING_INDEX(TRIM(quantity),' ',1) as  DECIMAL(10,2) )
+			WHEN substring(quantity , 1, 1) = '$' THEN CAST( REPLACE( REPLACE(TRIM(quantity), ',', '') , '$' , '' ) AS DECIMAL(10,2))
+			ELSE -1
         END as quantity ,
-		CASE WHEN a.discount is NULL or a.discount = ''  then 0 
-			WHEN a.discount REGEXP '^[0-9]+$' then a.discount 
-			else 0
+		CASE WHEN discount is NULL or discount = '' then 0  
+			WHEN discount REGEXP '^[0-9\.]+$' then CAST(discount as  DECIMAL(10,2) )
+            WHEN substring(discount , 1, 1) = '$' THEN CAST( REPLACE( REPLACE(TRIM(discount), ',', '') , '$' , '' ) AS DECIMAL(10,2))
+			-- WHEN SUBSTRING_INDEX(TRIM(discount),'/',1) REGEXP '^[0-9\.]+$' then CAST(SUBSTRING_INDEX(TRIM(discount),'/',1) as  DECIMAL(10,2) )
+			-- WHEN SUBSTRING_INDEX(TRIM(discount),' ',1) REGEXP '^[0-9\.]+$' then CAST(SUBSTRING_INDEX(TRIM(discount),' ',1) as  DECIMAL(10,2) )
+			ELSE -1
 		END as discount,
-		CASE WHEN a.`Shipping Cost` is NULL or a.`Shipping Cost` = '' then 0 
-			 WHEN substring(a.`Shipping Cost` , 1, 1) = '$' THEN CAST( substring(a.`Shipping Cost` , 2) AS DECIMAL) 
-			 WHEN substring(a.`Shipping Cost` , 1, 2) = '-$' THEN CAST( substring(a.`Shipping Cost` , 3) AS DECIMAL)
-             WHEN a.`Shipping Cost` REGEXP '^[0-9]+$' then a.`Shipping Cost`
-             ELSE 0
+		CASE WHEN `Shipping Cost` is NULL or `Shipping Cost` = '' then 0
+			WHEN `Shipping Cost` REGEXP '^[0-9\.]+$' then CAST(`Shipping Cost` as  DECIMAL(10,2) )
+			WHEN substring(`Shipping Cost` , 1, 1) = '$' THEN CAST( REPLACE( REPLACE(TRIM(`Shipping Cost`), ',', '') , '$' , '' ) AS DECIMAL(10,2))
+			WHEN substring(`Shipping Cost` , 1, 2) = '-$' THEN CAST( REPLACE( REPLACE(TRIM(`Shipping Cost`), ',', '') , '-$' , '-' ) AS DECIMAL(10,2))
+			WHEN SUBSTRING_INDEX(TRIM(sales),'/',1) REGEXP '^[0-9\.]+$' then CAST(SUBSTRING_INDEX(TRIM(`Shipping Cost`),'/',1) as  DECIMAL(10,2) )
+			WHEN SUBSTRING_INDEX(TRIM(sales),' ',1) REGEXP '^[0-9\.]+$' then CAST(SUBSTRING_INDEX(TRIM(`Shipping Cost`),' ',1) as  DECIMAL(10,2) )
+			ELSE -1
         END as `Shipping Cost` ,
-		CASE WHEN Profit is NULL or Profit = '' then 0  
-			WHEN substring(Profit , 1, 1) = '$' THEN CAST( substring(Profit , 2) AS DECIMAL) 
-			 WHEN substring(Profit , 1, 2) = '-$' THEN CAST( substring(Profit , 3) AS DECIMAL)
-             WHEN Profit REGEXP '^[0-9]+$' then Profit
-             ELSE 0
+		 CASE WHEN Profit is NULL or Profit = '' then 0
+			WHEN Profit REGEXP '^[0-9\.]+$' then CAST(Profit as  DECIMAL(10,2) )
+			WHEN substring(Profit , 1, 1) = '$' THEN CAST( REPLACE( REPLACE(TRIM(Profit), ',', '') , '$' , '' ) AS DECIMAL(10,2))
+			WHEN substring(Profit , 1, 2) = '-$' THEN CAST( REPLACE( REPLACE(TRIM(Profit), ',', '') , '-$' , '-' ) AS DECIMAL(10,2))
+			WHEN SUBSTRING_INDEX(TRIM(Profit),'/',1) REGEXP '^[0-9\.]+$' then CAST(SUBSTRING_INDEX(TRIM(Profit),'/',1) as  DECIMAL(10,2) )
+			WHEN SUBSTRING_INDEX(TRIM(Profit),' ',1) REGEXP '^[0-9\.]+$' then CAST(SUBSTRING_INDEX(TRIM(Profit),' ',1) as  DECIMAL(10,2) )
+			ELSE -1000000
         END as profit   ,
-        CASE WHEN Sales is NULL or Sales = '' then 0 
-			WHEN Sales REGEXP '^[0-9]+$' then Sales
-			ELSE 0 
+        CASE WHEN sales is NULL or sales = '' then 0
+			WHEN sales REGEXP '^[0-9\.]+$' then CAST(sales as  DECIMAL(10,2) )
+			WHEN substring(sales , 1, 1) = '$' THEN CAST( REPLACE( REPLACE(TRIM(sales), ',', '') , '$' , '' ) AS DECIMAL(10,2))
+			WHEN substring(sales , 1, 2) = '-$' THEN CAST( REPLACE( REPLACE(TRIM(sales), ',', '') , '-$' , '-' ) AS DECIMAL(10,2))
+			WHEN SUBSTRING_INDEX(TRIM(sales),'/',1) REGEXP '^[0-9\.]+$' then CAST(SUBSTRING_INDEX(TRIM(sales),'/',1) as  DECIMAL(10,2) )
+			WHEN SUBSTRING_INDEX(TRIM(sales),' ',1) REGEXP '^[0-9\.]+$' then CAST(SUBSTRING_INDEX(TRIM(sales),' ',1) as  DECIMAL(10,2) )
+			ELSE -1
 		END as sales,
 		a.`Order ID`as order_id ,
 		a.`Product ID` as product_id ,
@@ -181,3 +193,24 @@ insert into pkbc_ord_prod(
 
 update pkbc_orders a set is_returned = true 
 where a.order_id in ( select `Order ID` from pkbc_awesome_inc_returns);
+
+delete from pkbc_ord_prod 
+where quantity = -1 
+	or discount = -1
+    or shipping_cost = -1000000
+    or profit = -1
+    or sales = -1;
+
+-- number of records whose prices were null before
+
+-- with temptable as (select p.unit_price , 
+-- 	(select sum(op.sales) / sum(op.quantity) from pkbc_ord_prod op where op.product_id = p.product_id and op.market = p.market
+--     ) as cal
+--  from  pkbc_product p)
+-- select * from temptable where  cal is null;
+
+    
+update pkbc_product p
+set p.unit_price = coalesce(
+( select sum(op.sales) / sum(op.quantity) from pkbc_ord_prod op where op.product_id = p.product_id and op.market = p.market
+ ), 10);
