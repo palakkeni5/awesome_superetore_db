@@ -206,3 +206,55 @@ where c.email = email and c.otp = otp;
 end$$
 
 delimiter ;
+
+drop procedure if exists USP_GetAllCategory;
+delimiter $$
+create procedure USP_GetAllCategory()
+begin
+select category_id, category_name from pkbc_category;
+end$$
+
+delimiter ;
+
+drop procedure if exists USP_GetAllSubcategoryByCategory;
+delimiter $$
+create procedure USP_GetAllSubcategoryByCategory(
+	in category_id int
+)
+begin
+select s.sub_category_id, s.sub_category_name from pkbc_sub_category s where s.category_id = category_id;
+end$$
+
+delimiter ;
+
+drop procedure if exists USP_UpsertProduct;
+delimiter $$
+create procedure USP_UpsertProduct(
+	in product_name VARCHAR(200),
+    in unit_price DECIMAL(10,2),
+    in market int,
+    in sub_category_id int
+)
+begin
+declare sub_category_name VARCHAR(30);
+declare category_name VARCHAR(30);
+select s.sub_category_name into sub_category_name from pkbc_sub_category s where s.sub_category_id = sub_category_id limit 1;
+select c.category_name into category_name from pkbc_sub_category s inner join
+pkbc_category c on c.category_id = s.category_id limit 1;
+insert into pkbc_product(
+        product_id   ,
+        unit_price	 ,
+        product_name ,
+        market       ,
+        sub_category_id 
+)
+values (
+	CONCAT(UPPER(SUBSTRING(category_name, 1, 3)), "-", UPPER(SUBSTRING(sub_category_name, 1, 2)), "-", SUBSTRING(UUID(), 1, 4)),
+    unit_price,
+    product_name,
+    market,
+    sub_category_id
+);
+end$$
+
+delimiter ;
