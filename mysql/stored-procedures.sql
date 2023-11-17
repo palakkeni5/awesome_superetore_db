@@ -258,3 +258,137 @@ values (
 end$$
 
 delimiter ;
+
+DROP PROCEDURE IF EXISTS USP_InsertOrdersData;
+
+DELIMITER $$
+CREATE PROCEDURE USP_InsertOrdersData
+(
+    OrderProdJSON JSON,
+    in_addr_id bigint,
+	in_cust_id varchar(20),
+    in_ship_mode tinyint,
+    in_ship_date datetime
+)
+BEGIN
+	declare o_id VARCHAR(40);
+    
+    DECLARE jsonItemsLength BIGINT UNSIGNED DEFAULT JSON_LENGTH(`OrderProdJSON`);
+	DECLARE idx BIGINT UNSIGNED DEFAULT 0;
+    
+	DECLARE EXIT HANDLER FOR SQLEXCEPTION 
+		BEGIN
+		  GET DIAGNOSTICS CONDITION 1 @sqlstate = RETURNED_SQLSTATE, 
+									  @errno = MYSQL_ERRNO, @text = MESSAGE_TEXT;
+		  SET @text = LEFT(@text, 100);
+		  SET @Full_Error = CONCAT("ERROR ", @errno, " (", @sqlstate, "): ", @text);
+		  ROLLBACK;
+		  SIGNAL SQLSTATE "45001" SET MESSAGE_TEXT = @Full_Error;
+		END;
+    
+    SET autocommit = 0;
+	START TRANSACTION;
+    
+	set o_id = left(uuid(), 40);
+    
+	insert into pkbc_orders(
+        order_id   	,
+        order_date  ,
+        is_returned 
+	) values (
+		o_id,
+        NOW(),
+        false        
+    );
+    
+     DROP TEMPORARY TABLE IF EXISTS `temp_pkbc_ord_prod`;
+     
+     CREATE TEMPORARY TABLE  IF NOT EXISTS  `temp_pkbc_ord_prod`(
+	  `quantity` decimal(12,2) NOT NULL COMMENT 'Product Quantity for the order',
+	  `discount` decimal(10,2) NOT NULL COMMENT 'Discount for product of  the order',
+	  `shipping_cost` decimal(10,2) NOT NULL COMMENT 'Shipping cost for product of  the order',
+	  `profit` decimal(10,2) NOT NULL COMMENT 'Profit for product of  the order',
+	  `sales` bigint NOT NULL COMMENT 'Sales for the product of the order',
+	  `order_id` varchar(40) NOT NULL COMMENT 'Order Id',
+	  `product_id` varchar(20) NOT NULL COMMENT 'Product Id',
+	  `market` tinyint NOT NULL,
+	  `addr_id` bigint NOT NULL,
+	  `cust_id` varchar(20) NOT NULL COMMENT 'Customer Id',
+	  `ship_mode` tinyint NOT NULL COMMENT 'shipping  mode. 1: First Class , 2 : Second Class , 3 : Same Day, 4 : Standard Class',
+	  `ship_date` datetime NOT NULL COMMENT 'Shipping Date'
+     );
+     
+     WHILE idx < jsonItemsLength 
+     DO
+		 insert into `temp_pkbc_ord_prod`(
+			quantity    	,
+			discount        ,
+			shipping_cost   ,
+			profit          ,
+			sales           ,
+			order_id        ,
+			product_id      ,
+			market          ,
+			addr_id         ,
+			cust_id    	    ,
+			ship_mode       ,
+			ship_date   
+		)  values (
+			JSON_UNQUOTE(JSON_EXTRACT(OrderProdJSON, CONCAT('$[', idx , '].quantity')))			,	
+			JSON_UNQUOTE(JSON_EXTRACT(OrderProdJSON, CONCAT('$[', idx , '].discount')))			,	
+			JSON_UNQUOTE(JSON_EXTRACT(OrderProdJSON, CONCAT('$[', idx , '].shipping_cost')))	,
+			JSON_UNQUOTE(JSON_EXTRACT(OrderProdJSON, CONCAT('$[', idx , '].profit')))			,		   
+			JSON_UNQUOTE(JSON_EXTRACT(OrderProdJSON, CONCAT('$[', idx , '].sales')))			,		   
+			o_id,	
+			JSON_UNQUOTE(JSON_EXTRACT(OrderProdJSON, CONCAT('$[', idx , '].product_id')))		,	
+			case when JSON_UNQUOTE(JSON_EXTRACT(OrderProdJSON, CONCAT('$[', idx , '].market'))) = 'USCA'  then 1
+				when JSON_UNQUOTE(JSON_EXTRACT(OrderProdJSON, CONCAT('$[', idx , '].market'))) = 'Asia Pacific'  then 2
+				when JSON_UNQUOTE(JSON_EXTRACT(OrderProdJSON, CONCAT('$[', idx , '].market'))) = 'Europe'  then 3
+				when JSON_UNQUOTE(JSON_EXTRACT(OrderProdJSON, CONCAT('$[', idx , '].market'))) = 'Africa'  then 4
+				when JSON_UNQUOTE(JSON_EXTRACT(OrderProdJSON, CONCAT('$[', idx , '].market'))) = 'LATAM'  then 5
+				else 0 end ,	   
+			in_addr_id			,		   
+			in_cust_id			,		   
+			in_ship_mode		,	
+			in_ship_date       
+        );
+        
+        
+        
+        SET idx = idx + 1;
+	END WHILE;
+    
+    insert into pkbc_ord_prod(
+		quantity    	,
+		discount        ,
+		shipping_cost   ,
+		profit          ,
+		sales           ,
+		order_id        ,
+		product_id      ,
+		market          ,
+		addr_id         ,
+		cust_id    	    ,
+		ship_mode       ,
+		ship_date   		
+	) select
+		quantity    	,
+		discount        ,
+		shipping_cost   ,
+		profit          ,
+		sales           ,
+		order_id        ,
+		product_id      ,
+		market          ,
+		addr_id         ,
+		cust_id    	    ,
+		ship_mode       ,
+		ship_date  
+	from `temp_pkbc_ord_prod`;
+    
+     
+	DROP TEMPORARY TABLE IF EXISTS `temp_pkbc_ord_prod`; 
+    COMMIT WORK;   
+    
+END $$
+DELIMITER ;
