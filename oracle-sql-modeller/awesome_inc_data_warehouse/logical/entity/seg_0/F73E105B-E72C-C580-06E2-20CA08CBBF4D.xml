@@ -1,0 +1,94 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="F73E105B-E72C-C580-06E2-20CA08CBBF4D" name="DIM_DATE">
+<createdBy>briancatraguna</createdBy>
+<createdTime>2023-11-18 04:13:39 UTC</createdTime>
+<ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
+<engineerTo>
+<item key="E92BBC06-E9C2-0715-0229-490C559BB7E2" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ENTRY_ID" id="940718F8-2D8F-6B42-C67A-243FF3D7C658">
+<createdBy>briancatraguna</createdBy>
+<createdTime>2023-11-18 04:13:48 UTC</createdTime>
+<ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
+<engineerTo>
+<item key="E92BBC06-E9C2-0715-0229-490C559BB7E2" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="FULL_DATE" id="910705D5-5194-1EE8-20C8-8D97A270D243">
+<createdBy>briancatraguna</createdBy>
+<createdTime>2023-11-18 04:14:17 UTC</createdTime>
+<ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
+<engineerTo>
+<item key="E92BBC06-E9C2-0715-0229-490C559BB7E2" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DAY" id="6FC788F2-476D-A541-5B73-1DFD825A61F0">
+<createdBy>briancatraguna</createdBy>
+<createdTime>2023-11-18 04:15:51 UTC</createdTime>
+<ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
+<engineerTo>
+<item key="E92BBC06-E9C2-0715-0229-490C559BB7E2" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="MONTH" id="7F449910-2700-A659-327C-46D494FF30E7">
+<createdBy>briancatraguna</createdBy>
+<createdTime>2023-11-18 04:16:08 UTC</createdTime>
+<commentInRDBMS><![CDATA[Month]]></commentInRDBMS>
+<ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
+<engineerTo>
+<item key="E92BBC06-E9C2-0715-0229-490C559BB7E2" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="YEAR" id="41FC7387-49DE-0E19-5532-E6DC4007D919">
+<createdBy>briancatraguna</createdBy>
+<createdTime>2023-11-18 04:16:25 UTC</createdTime>
+<commentInRDBMS><![CDATA[Year]]></commentInRDBMS>
+<ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
+<engineerTo>
+<item key="E92BBC06-E9C2-0715-0229-490C559BB7E2" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DAY_OF_WEEK" id="192FE069-61BD-92EC-1C97-E1DA11E5D7A2">
+<createdBy>briancatraguna</createdBy>
+<createdTime>2023-11-18 04:16:45 UTC</createdTime>
+<ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
+<engineerTo>
+<item key="E92BBC06-E9C2-0715-0229-490C559BB7E2" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CDAB0144-8F33-204E-ACE9-5014B0710AA4" name="DIM_SUB_CATEGORY">
+<createdBy>briancatraguna</createdBy>
+<createdTime>2023-11-18 04:20:19 UTC</createdTime>
+<generatorID>29B62FA2-C01C-E4AE-E5DC-336C93DB2737</generatorID>
+<ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SUB_CATEGORY_ID" id="A2F37E77-0D69-DC33-A1FD-F02CAF9330E6">
+<createdBy>briancatraguna</createdBy>
+<createdTime>2023-11-18 04:20:19 UTC</createdTime>
+<commentInRDBMS><![CDATA[Category id.]]></commentInRDBMS>
+<generatorID>E1DC1BD1-1DF2-1F22-6A44-A78F16405DA3</generatorID>
+<ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>5</dataTypePrecision>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="SUB_CATEGORY_NAME" id="77C6DF7C-C2CD-7EE8-EE3E-90E36410A873">
+<createdBy>briancatraguna</createdBy>
+<createdTime>2023-11-18 04:20:19 UTC</createdTime>
+<commentInRDBMS><![CDATA[Product Category Name]]></commentInRDBMS>
+<generatorID>1169B973-6C27-830A-08FA-655C6077988E</generatorID>
+<ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TBL_LAST_DT" id="CE03B4A3-8C6E-EF72-6DFC-6970F77FAC56">
+<createdBy>briancatraguna</createdBy>
+<createdTime>2023-11-18 04:20:19 UTC</createdTime>
+<commentInRDBMS><![CDATA[Timestamp for the row data added]]></commentInRDBMS>
+<generatorID>9C8247F2-712C-B1BF-7705-83D93EFA3275</generatorID>
+<ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CATEGORY_NAME" id="7BD6CD63-7F75-A7F5-DBFA-B42E096B0611">
+<createdBy>briancatraguna</createdBy>
+<createdTime>2023-11-18 04:20:19 UTC</createdTime>
+<commentInRDBMS><![CDATA[Category name]]></commentInRDBMS>
+<generatorID>72F6A44F-FF78-033F-F692-7F0F264E56F1</generatorID>
+<ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8EFAFFBB-EB6D-17EE-5E6B-BAB4F4B18001" name="DIM_SUB_CATEGORY_PK">
+<createdBy>briancatraguna</createdBy>
+<createdTime>2023-11-18 04:20:19 UTC</createdTime>
+<generatorID>043211E9-1FDC-F4AB-8412-BF44E944B736</generatorID>
+<ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A2F37E77-0D69-DC33-A1FD-F02CAF9330E6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
