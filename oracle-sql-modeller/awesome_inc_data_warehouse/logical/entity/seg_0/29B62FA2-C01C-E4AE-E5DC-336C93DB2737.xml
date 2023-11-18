@@ -43,19 +43,6 @@
 <dataTypeSize>30</dataTypeSize>
 <ownDataTypeParameters>30,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="TBL_LAST_DT" id="9C8247F2-712C-B1BF-7705-83D93EFA3275">
-<createdBy>palak</createdBy>
-<createdTime>2023-10-25 20:55:24 UTC</createdTime>
-<commentInRDBMS><![CDATA[Timestamp for the row data added]]></commentInRDBMS>
-<ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
-<engineerTo>
-<item key="E92BBC06-E9C2-0715-0229-490C559BB7E2" value="true"/>
-</engineerTo>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 <Attribute name="CATEGORY_NAME" id="72F6A44F-FF78-033F-F692-7F0F264E56F1">
 <createdBy>briancatraguna</createdBy>
 <createdTime>2023-11-18 03:58:47 UTC</createdTime>

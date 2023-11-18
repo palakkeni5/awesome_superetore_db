@@ -34,18 +34,6 @@
 <ownDataTypeParameters>30,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="TBL_LAST_DT" id="CE03B4A3-8C6E-EF72-6DFC-6970F77FAC56">
-<createdBy>briancatraguna</createdBy>
-<createdTime>2023-11-18 04:20:19 UTC</createdTime>
-<commentInRDBMS><![CDATA[Timestamp for the row data added]]></commentInRDBMS>
-<generatorID>9C8247F2-712C-B1BF-7705-83D93EFA3275</generatorID>
-<ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
-<useDomainConstraints>false</useDomainConstraints>
-<use>1</use>
-<logicalDatatype>LOGDT007</logicalDatatype>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-<autoIncrementCycle>false</autoIncrementCycle>
-</Column>
 <Column name="CATEGORY_NAME" id="7BD6CD63-7F75-A7F5-DBFA-B42E096B0611">
 <createdBy>briancatraguna</createdBy>
 <createdTime>2023-11-18 04:20:19 UTC</createdTime>

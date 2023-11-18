@@ -154,7 +154,7 @@
 <ownDataTypeParameters>,1,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="DIM_ADDRESS_ADDRESS_ID" id="4A35B78D-F6FA-FE82-55FD-BDEFD6530FF9">
+<Column name="ADDRESS_ID" id="4A35B78D-F6FA-FE82-55FD-BDEFD6530FF9">
 <createdBy>briancatraguna</createdBy>
 <createdTime>2023-11-18 04:20:19 UTC</createdTime>
 <generatorID>CF2FB03E-1660-22DB-E540-A4C688B83847</generatorID>
@@ -170,7 +170,7 @@
 <colAssociation fkAssociation="323FC603-DCF0-18CE-063D-41C3EF3A7AA3" referredColumn="1A1F1B6E-D18D-D991-F6DB-F423627DFC8D"/>
 </associations>
 </Column>
-<Column name="DIM_CUSTOMER_CUST_ID" id="11DEFEB7-5EAF-E84C-FFF5-2CAAECAACCE5">
+<Column name="CUST_ID" id="11DEFEB7-5EAF-E84C-FFF5-2CAAECAACCE5">
 <createdBy>briancatraguna</createdBy>
 <createdTime>2023-11-18 04:20:19 UTC</createdTime>
 <generatorID>9F339950-B81C-F469-9AE6-74367A09506D</generatorID>
@@ -186,7 +186,7 @@
 <colAssociation fkAssociation="6FE92E3F-3CFC-3A4E-3367-7C9E8D50E131" referredColumn="A302C491-EE00-E383-B769-433EB80FA08F"/>
 </associations>
 </Column>
-<Column name="DIM_SUB_CATEGORY_SUB_CATEGORY_ID" id="B47E1C8A-D9BC-4623-8DC8-2CB3D073C5AF">
+<Column name="SUB_CATEGORY_ID" id="B47E1C8A-D9BC-4623-8DC8-2CB3D073C5AF">
 <createdBy>briancatraguna</createdBy>
 <createdTime>2023-11-18 04:20:19 UTC</createdTime>
 <generatorID>4710BFB1-B7F1-D4E4-186D-69FB931A6645</generatorID>
@@ -202,7 +202,7 @@
 <colAssociation fkAssociation="7F5DE2F0-5E74-9DAA-AA4E-AA9893734102" referredColumn="A2F37E77-0D69-DC33-A1FD-F02CAF9330E6"/>
 </associations>
 </Column>
-<Column name="PKBC_PRODUCT_PRODUCT_ID" id="E770FD26-350B-8D6F-AE03-E1C38E30FED9">
+<Column name="PRODUCT_ID" id="E770FD26-350B-8D6F-AE03-E1C38E30FED9">
 <createdBy>briancatraguna</createdBy>
 <createdTime>2023-11-18 04:20:19 UTC</createdTime>
 <comment><![CDATA[Order id]]></comment>
@@ -219,7 +219,7 @@
 <colAssociation fkAssociation="1AA856AC-F198-61CD-2D06-CB2D2F41CF4E" referredColumn="F0DC5378-6343-FE63-3957-1831FF1F071B"/>
 </associations>
 </Column>
-<Column name="DIM_DATE_DIM_DATE_ID" id="4450B18D-D64E-03E9-A1BA-BB16C67251D5">
+<Column name="DATE_ID" id="4450B18D-D64E-03E9-A1BA-BB16C67251D5">
 <createdBy>briancatraguna</createdBy>
 <createdTime>2023-11-18 04:20:19 UTC</createdTime>
 <ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
@@ -247,7 +247,7 @@
 <colUsage columnID="B35D33C0-9EDA-E158-06F0-2B6264CD8010"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="FF09D10D-1507-006B-858A-640B869B573F" name="FACT_ORDERS_DIM_ADDRESS_FK">
+<ind_PK_UK id="FF09D10D-1507-006B-858A-640B869B573F" name="ORDERS_ADDRESS_FK">
 <createdBy>briancatraguna</createdBy>
 <createdTime>2023-11-18 04:20:19 UTC</createdTime>
 <generatorID>D0546D51-D027-B003-7B71-9E73D073772B</generatorID>
@@ -258,7 +258,7 @@
 <colUsage columnID="4A35B78D-F6FA-FE82-55FD-BDEFD6530FF9"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="7E3B9A1E-CB5E-1575-697E-00AB9ABFF285" name="FACT_ORDERS_DIM_CUSTOMER_FK">
+<ind_PK_UK id="7E3B9A1E-CB5E-1575-697E-00AB9ABFF285" name="ORDERS_CUSTOMER_FK">
 <createdBy>briancatraguna</createdBy>
 <createdTime>2023-11-18 04:20:19 UTC</createdTime>
 <generatorID>DA7A228A-6E79-874F-3BFA-3B7FB44058CF</generatorID>
@@ -269,7 +269,7 @@
 <colUsage columnID="11DEFEB7-5EAF-E84C-FFF5-2CAAECAACCE5"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="A7DC0CDA-3F4D-FBD2-A492-148F74AA787D" name="FACT_ORDERS_DIM_SUB_CATEGORY_FK">
+<ind_PK_UK id="A7DC0CDA-3F4D-FBD2-A492-148F74AA787D" name="ORDERS_SUB_CATEGORY_FK">
 <createdBy>briancatraguna</createdBy>
 <createdTime>2023-11-18 04:20:19 UTC</createdTime>
 <generatorID>857B33E2-A07A-4273-A5B5-6A3EA6771D75</generatorID>
@@ -280,7 +280,7 @@
 <colUsage columnID="B47E1C8A-D9BC-4623-8DC8-2CB3D073C5AF"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="CA5DB34B-B048-8818-3AE9-070EC18F0504" name="FACT_ORDERS_DIM_DATE_FK">
+<ind_PK_UK id="CA5DB34B-B048-8818-3AE9-070EC18F0504" name="ORDERS_DATE_FK">
 <createdBy>briancatraguna</createdBy>
 <createdTime>2023-11-18 04:20:19 UTC</createdTime>
 <generatorID>A199B279-3055-E619-5CE0-F5F0E9903B3D</generatorID>
@@ -291,7 +291,7 @@
 <colUsage columnID="4450B18D-D64E-03E9-A1BA-BB16C67251D5"/>
 </indexColumnUsage>
 </ind_PK_UK>
-<ind_PK_UK id="5B05AF63-8DE0-BA55-544B-75D25F2EAB76" name="FACT_ORDERS_PKBC_PRODUCT_FK">
+<ind_PK_UK id="5B05AF63-8DE0-BA55-544B-75D25F2EAB76" name="ORDERS_PRODUCT_FK">
 <createdBy>briancatraguna</createdBy>
 <createdTime>2023-11-18 04:20:19 UTC</createdTime>
 <generatorID>517B14FF-9E4E-5316-3E32-6D453EBA29A1</generatorID>
