@@ -395,3 +395,16 @@ BEGIN
     
 END $$
 DELIMITER ;
+
+drop procedure if exists USP_GetOrdersByCustomer;
+
+delimiter $$
+create procedure USP_GetOrdersByCustomer(
+	in cust_id VARCHAR(20),
+    in is_returned CHAR(1)
+)
+begin
+select * from pkbc_orders o where o.order_id in (select op.order_id from pkbc_ord_prod op where op.cust_id = cust_id) and o.is_returned = is_returned;
+end$$
+delimiter ;
+
