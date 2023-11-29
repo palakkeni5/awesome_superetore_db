@@ -238,9 +238,11 @@ create procedure USP_UpsertProduct(
 begin
 declare sub_category_name VARCHAR(30);
 declare category_name VARCHAR(30);
+declare inserted_product_id VARCHAR(20);
 select s.sub_category_name into sub_category_name from pkbc_sub_category s where s.sub_category_id = sub_category_id limit 1;
 select c.category_name into category_name from pkbc_sub_category s inner join
 pkbc_category c on c.category_id = s.category_id limit 1;
+select CONCAT(UPPER(SUBSTRING(category_name, 1, 3)), "-", UPPER(SUBSTRING(sub_category_name, 1, 2)), "-", SUBSTRING(UUID(), 1, 4)) into inserted_product_id;
 insert into pkbc_product(
         product_id   ,
         unit_price	 ,
@@ -249,12 +251,13 @@ insert into pkbc_product(
         sub_category_id 
 )
 values (
-	CONCAT(UPPER(SUBSTRING(category_name, 1, 3)), "-", UPPER(SUBSTRING(sub_category_name, 1, 2)), "-", SUBSTRING(UUID(), 1, 4)),
+	inserted_product_id,
     unit_price,
     product_name,
     market,
     sub_category_id
 );
+select * from pkbc_product where product_id = inserted_product_id limit 1;
 end$$
 
 delimiter ;
