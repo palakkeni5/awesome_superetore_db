@@ -408,3 +408,19 @@ select * from pkbc_orders o where o.order_id in (select op.order_id from pkbc_or
 end$$
 delimiter ;
 
+drop procedure if exists USP_ReturnOrder;
+
+delimiter $$
+create procedure USP_ReturnOrder(
+	in order_id VARCHAR(40)
+)
+begin
+update pkbc_orders o
+set o.is_returned = '1'
+where o.order_id = order_id;
+select * from pkbc_orders o where o.order_id = order_id;
+end$$
+delimiter ;
+
+
+
