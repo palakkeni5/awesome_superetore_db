@@ -404,7 +404,12 @@ create procedure USP_GetOrdersByCustomer(
     in is_returned CHAR(1)
 )
 begin
-select * from pkbc_orders o where o.order_id in (select op.order_id from pkbc_ord_prod op where op.cust_id = cust_id) and o.is_returned = is_returned;
+select op.order_id, o.order_date, count(op.order_id) total_items
+from pkbc_ord_prod op 
+left join pkbc_orders o on o.order_id = op.order_id
+where op.cust_id = cust_id
+and o.is_returned = is_returned
+group by op.order_id;
 end$$
 delimiter ;
 
@@ -429,7 +434,19 @@ create procedure USP_GetOrderProd(
 	in order_id VARCHAR(40)
 )
 begin
-select * from pkbc_ord_prod op where op.order_id = order_id;
+select 
+op.quantity, 
+op.discount, 
+op.shipping_cost, 
+op.profit, 
+op.sales, 
+op.ship_date,
+op.ship_mode,
+op.product_id,
+p.product_name
+from pkbc_ord_prod op
+left join pkbc_product p on p.product_id = op.product_id
+where op.order_id = order_id;
 end$$
 delimiter ;
 
