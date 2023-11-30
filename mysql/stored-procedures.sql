@@ -422,5 +422,16 @@ select * from pkbc_orders o where o.order_id = order_id;
 end$$
 delimiter ;
 
+drop procedure if exists USP_GetOrderProd;
+
+delimiter $$
+create procedure USP_GetOrderProd(
+	in order_id VARCHAR(40)
+)
+begin
+select * from pkbc_ord_prod op where op.order_id = order_id;
+end$$
+delimiter ;
+
 
 
