@@ -143,6 +143,7 @@ CREATE TABLE dws.stg_pkbc_fact_orders (
     cust_id         VARCHAR2(20) NOT NULL,
     sub_category_id NUMBER(5) NOT NULL, 
     product_id      VARCHAR2(20) NOT NULL,
+	market       NUMBER(1) NOT NULL,
     date_id         VARCHAR2(8) NOT NULL,
 	TBL_LAST_DT  	varchar2(19)
 );

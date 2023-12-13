@@ -125,7 +125,8 @@ SET@`qry` = CONCAT(
 	addr_id as address_id    ,  
 	cust_id   ,      
 	sub_category_id , 
-	a.product_id  ,    
+	a.product_id  , 
+	a.market   , 	
 	DATE_FORMAT(order_date,\'%m%d%Y\'),
 	a.tbl_last_dt
 into outfile ' , 
@@ -145,7 +146,7 @@ DEALLOCATE PREPARE `stmt`;
 
 
 --
-  insert into etl_extract_date values ( @`curr` );
+  insert into etl_extract_date(last_extract_date) values ( @`curr` );
   
 END;
 
