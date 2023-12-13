@@ -238,9 +238,11 @@ create procedure USP_UpsertProduct(
 begin
 declare sub_category_name VARCHAR(30);
 declare category_name VARCHAR(30);
+declare inserted_product_id VARCHAR(20);
 select s.sub_category_name into sub_category_name from pkbc_sub_category s where s.sub_category_id = sub_category_id limit 1;
 select c.category_name into category_name from pkbc_sub_category s inner join
 pkbc_category c on c.category_id = s.category_id limit 1;
+select CONCAT(UPPER(SUBSTRING(category_name, 1, 3)), "-", UPPER(SUBSTRING(sub_category_name, 1, 2)), "-", SUBSTRING(UUID(), 1, 4)) into inserted_product_id;
 insert into pkbc_product(
         product_id   ,
         unit_price	 ,
@@ -249,12 +251,13 @@ insert into pkbc_product(
         sub_category_id 
 )
 values (
-	CONCAT(UPPER(SUBSTRING(category_name, 1, 3)), "-", UPPER(SUBSTRING(sub_category_name, 1, 2)), "-", SUBSTRING(UUID(), 1, 4)),
+	inserted_product_id,
     unit_price,
     product_name,
     market,
     sub_category_id
 );
+select * from pkbc_product where product_id = inserted_product_id limit 1;
 end$$
 
 delimiter ;
@@ -392,3 +395,60 @@ BEGIN
     
 END $$
 DELIMITER ;
+
+drop procedure if exists USP_GetOrdersByCustomer;
+
+delimiter $$
+create procedure USP_GetOrdersByCustomer(
+	in cust_id VARCHAR(20),
+    in is_returned CHAR(1)
+)
+begin
+select op.order_id, o.order_date, count(op.order_id) total_items
+from pkbc_ord_prod op 
+left join pkbc_orders o on o.order_id = op.order_id
+where op.cust_id = cust_id
+and o.is_returned = is_returned
+group by op.order_id;
+end$$
+delimiter ;
+
+drop procedure if exists USP_ReturnOrder;
+
+delimiter $$
+create procedure USP_ReturnOrder(
+	in order_id VARCHAR(40)
+)
+begin
+update pkbc_orders o
+set o.is_returned = '1'
+where o.order_id = order_id;
+select * from pkbc_orders o where o.order_id = order_id;
+end$$
+delimiter ;
+
+drop procedure if exists USP_GetOrderProd;
+
+delimiter $$
+create procedure USP_GetOrderProd(
+	in order_id VARCHAR(40)
+)
+begin
+select 
+op.quantity, 
+op.discount, 
+op.shipping_cost, 
+op.profit, 
+op.sales, 
+op.ship_date,
+op.ship_mode,
+op.product_id,
+p.product_name
+from pkbc_ord_prod op
+left join pkbc_product p on p.product_id = op.product_id
+where op.order_id = order_id;
+end$$
+delimiter ;
+
+
+
