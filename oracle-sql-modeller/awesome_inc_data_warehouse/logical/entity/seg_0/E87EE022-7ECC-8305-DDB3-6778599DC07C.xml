@@ -42,6 +42,20 @@
 <dataTypeSize>40</dataTypeSize>
 <ownDataTypeParameters>40,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="ORDER_DATE" id="3370DD9A-6AE1-4ADE-3B06-3003E7B08218">
+<createdBy>palak</createdBy>
+<createdTime>2023-11-18 22:04:34 UTC</createdTime>
+<comment><![CDATA[Shipping date]]></comment>
+<commentInRDBMS><![CDATA[Oder Date]]></commentInRDBMS>
+<ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
+<engineerTo>
+<item key="E92BBC06-E9C2-0715-0229-490C559BB7E2" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="IS_RETURNED" id="ADC6B9B6-D413-4E2F-D1A4-4808DA1829E2">
 <createdBy>briancatraguna</createdBy>
 <createdTime>2023-11-18 04:12:09 UTC</createdTime>
@@ -190,7 +204,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>10</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>,10,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="CUST_ID" id="9F339950-B81C-F469-9AE6-74367A09506D">
 <createdBy>briancatraguna</createdBy>
@@ -205,7 +219,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>20</dataTypeSize>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="SUB_CATEGORY_ID" id="4710BFB1-B7F1-D4E4-186D-69FB931A6645">
 <createdBy>briancatraguna</createdBy>
@@ -220,7 +234,7 @@
 <use>1</use>
 <logicalDatatype>LOGDT019</logicalDatatype>
 <dataTypePrecision>5</dataTypePrecision>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
+<ownDataTypeParameters>,5,</ownDataTypeParameters>
 </Attribute>
 <Attribute name="PRODUCT_ID" id="DF4343D7-3E8D-63DD-3B80-038CBC4D5B8E">
 <createdBy>briancatraguna</createdBy>
@@ -236,6 +250,21 @@
 <use>1</use>
 <logicalDatatype>LOGDT024</logicalDatatype>
 <dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="DATE_ID" id="8CF82520-3620-4B68-9DCA-38979C5F6DE8">
+<createdBy>palak</createdBy>
+<createdTime>2023-11-18 22:02:04 UTC</createdTime>
+<generatorID>A199B279-3055-E619-5CE0-F5F0E9903B3D</generatorID>
+<ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
+<engineerTo>
+<item key="E92BBC06-E9C2-0715-0229-490C559BB7E2" value="true"/>
+</engineerTo>
+<referedAttribute>C2903E51-68DF-D31F-7249-D42741EEF90A</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>8</dataTypeSize>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>

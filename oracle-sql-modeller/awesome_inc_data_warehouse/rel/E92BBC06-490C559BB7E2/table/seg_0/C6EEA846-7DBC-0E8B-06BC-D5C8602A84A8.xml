@@ -1,17 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4450E2C2-3BE6-D14E-AF0F-85447E7D0955" name="DIM_PRODUCT">
-<createdBy>briancatraguna</createdBy>
-<createdTime>2023-11-18 04:20:19 UTC</createdTime>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C6EEA846-7DBC-0E8B-06BC-D5C8602A84A8" name="DIM_PRODUCT">
+<createdBy>palak</createdBy>
+<createdTime>2023-11-18 22:07:28 UTC</createdTime>
 <generatorID>9DA30154-011D-7229-DA0F-B4D5DBDB4DBE</generatorID>
 <ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
-<ordsAlias>pkbc_product</ordsAlias>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="PRODUCT_ID" id="F0DC5378-6343-FE63-3957-1831FF1F071B">
-<createdBy>briancatraguna</createdBy>
-<createdTime>2023-11-18 04:20:19 UTC</createdTime>
+<Column name="PRODUCT_ID" id="84098C28-CAA4-3C98-536B-A4232D2C60D0">
+<createdBy>palak</createdBy>
+<createdTime>2023-11-18 22:07:28 UTC</createdTime>
 <comment><![CDATA[Order id]]></comment>
 <commentInRDBMS><![CDATA[Product  id.]]></commentInRDBMS>
 <generatorID>E00CD186-1E2D-C5FC-1BB2-F92BBDE7CA46</generatorID>
@@ -23,9 +22,9 @@
 <ownDataTypeParameters>20,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="PRODUCT_NAME" id="702B9583-8F5B-2FF5-163D-747DE970C768">
-<createdBy>briancatraguna</createdBy>
-<createdTime>2023-11-18 04:20:19 UTC</createdTime>
+<Column name="PRODUCT_NAME" id="C321D05C-71BE-AD97-05EE-248CE5929424">
+<createdBy>palak</createdBy>
+<createdTime>2023-11-18 22:07:28 UTC</createdTime>
 <commentInRDBMS><![CDATA[Product Name]]></commentInRDBMS>
 <generatorID>F176E9B1-75E3-4846-EF61-6C70862ED0AD</generatorID>
 <ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
@@ -36,9 +35,9 @@
 <ownDataTypeParameters>200,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="UNIT_PRICE" id="908D8E0B-8C75-722B-C5DD-3185C3906178">
-<createdBy>briancatraguna</createdBy>
-<createdTime>2023-11-18 04:20:19 UTC</createdTime>
+<Column name="UNIT_PRICE" id="881999ED-C29A-C222-F2EE-C135BBAD1019">
+<createdBy>palak</createdBy>
+<createdTime>2023-11-18 22:07:28 UTC</createdTime>
 <commentInRDBMS><![CDATA[Price]]></commentInRDBMS>
 <generatorID>715A084F-57ED-B548-45E9-0D6CE2B6213B</generatorID>
 <ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
@@ -50,9 +49,9 @@
 <ownDataTypeParameters>,10,2</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="MARKET" id="6DF4FCC1-983B-AA6D-A90C-8C759FA0694D">
-<createdBy>briancatraguna</createdBy>
-<createdTime>2023-11-18 04:20:19 UTC</createdTime>
+<Column name="MARKET" id="BA5904DE-4C62-40FE-BFD2-9DB1D4FE4ECE">
+<createdBy>palak</createdBy>
+<createdTime>2023-11-18 22:07:28 UTC</createdTime>
 <commentInRDBMS><![CDATA[Product Market. 1: Africa, 2: Asia Pacific, 3: Europe, 4: LATAM, 5: USCA
 
 
@@ -69,16 +68,16 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="1E615C8C-F012-22E9-1476-895A25B3DC75" name="PKBC_PRODUCT_PK">
-<createdBy>briancatraguna</createdBy>
-<createdTime>2023-11-18 04:20:19 UTC</createdTime>
+<ind_PK_UK id="9F1F7156-EC4F-2B2F-C281-05D6E73D6E11" name="DIM_PRODUCT_PK">
+<createdBy>palak</createdBy>
+<createdTime>2023-11-18 22:07:28 UTC</createdTime>
 <generatorID>8E197A5F-85DC-FDC0-614C-79DA3C9F2563</generatorID>
 <ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="F0DC5378-6343-FE63-3957-1831FF1F071B"/>
+<colUsage columnID="84098C28-CAA4-3C98-536B-A4232D2C60D0"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>

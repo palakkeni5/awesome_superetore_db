@@ -1,16 +1,16 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6815CE88-C613-A834-E878-07245E3BE0DD" name="DIM_ADDRESS">
-<createdBy>briancatraguna</createdBy>
-<createdTime>2023-11-18 04:20:19 UTC</createdTime>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="768697F0-6F3E-EF4A-7FBA-000D5892C942" name="DIM_ADDRESS">
+<createdBy>palak</createdBy>
+<createdTime>2023-11-18 22:07:28 UTC</createdTime>
 <generatorID>441D7B1A-B87A-920F-FFBC-8C806E7F9F68</generatorID>
 <ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
 <allowColumnReorder>false</allowColumnReorder>
 <existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
 <parsed>true</parsed>
 <columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
-<Column name="ADDRESS_ID" id="1A1F1B6E-D18D-D991-F6DB-F423627DFC8D">
-<createdBy>briancatraguna</createdBy>
-<createdTime>2023-11-18 04:20:19 UTC</createdTime>
+<Column name="ADDRESS_ID" id="D92617A0-8FC2-42C1-2534-9CA46F82F3CB">
+<createdBy>palak</createdBy>
+<createdTime>2023-11-18 22:07:28 UTC</createdTime>
 <commentInRDBMS><![CDATA[Location ID]]></commentInRDBMS>
 <generatorID>31A23A63-BA3D-951E-9868-67B92A2948D4</generatorID>
 <ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
@@ -21,9 +21,9 @@
 <ownDataTypeParameters>,10,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="POSTAL_CODE" id="7321D876-EDB2-18AF-60FF-CA1879311A1F">
-<createdBy>briancatraguna</createdBy>
-<createdTime>2023-11-18 04:20:19 UTC</createdTime>
+<Column name="POSTAL_CODE" id="7D871767-5D6E-7273-CE91-94F2013F4D48">
+<createdBy>palak</createdBy>
+<createdTime>2023-11-18 22:07:28 UTC</createdTime>
 <generatorID>3F25C766-E50D-B374-BFE6-6D6B5CCF4AF4</generatorID>
 <ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
 <useDomainConstraints>false</useDomainConstraints>
@@ -33,9 +33,9 @@
 <ownDataTypeParameters>10,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="CITY_NAME" id="7AB5FD9D-1D75-90E1-73B7-574CA527BBB4">
-<createdBy>briancatraguna</createdBy>
-<createdTime>2023-11-18 04:20:19 UTC</createdTime>
+<Column name="CITY_NAME" id="4A7BA3A8-355B-F3ED-7E10-A531C49B1FF8">
+<createdBy>palak</createdBy>
+<createdTime>2023-11-18 22:07:28 UTC</createdTime>
 <commentInRDBMS><![CDATA[City Name]]></commentInRDBMS>
 <generatorID>4E7152C0-8B94-CCF7-F665-BCB544B1AC2A</generatorID>
 <ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
@@ -46,9 +46,9 @@
 <ownDataTypeParameters>50,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="STATE_NAME" id="155727A0-C7D0-E9D3-7D06-C1166D710993">
-<createdBy>briancatraguna</createdBy>
-<createdTime>2023-11-18 04:20:19 UTC</createdTime>
+<Column name="STATE_NAME" id="B9D686B9-A439-3AC2-AFDD-4272372D1964">
+<createdBy>palak</createdBy>
+<createdTime>2023-11-18 22:07:28 UTC</createdTime>
 <commentInRDBMS><![CDATA[State name]]></commentInRDBMS>
 <generatorID>EE53BD8D-83FA-5201-4F2E-5B3AF6395AAE</generatorID>
 <ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
@@ -59,9 +59,9 @@
 <ownDataTypeParameters>50,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="COUNTRY_NAME" id="A5E94303-E422-1923-FE82-4D9A93784A35">
-<createdBy>briancatraguna</createdBy>
-<createdTime>2023-11-18 04:20:19 UTC</createdTime>
+<Column name="COUNTRY_NAME" id="05F2D688-88B6-83FB-BE01-2D99D3451467">
+<createdBy>palak</createdBy>
+<createdTime>2023-11-18 22:07:28 UTC</createdTime>
 <commentInRDBMS><![CDATA[Country name]]></commentInRDBMS>
 <generatorID>8206915A-BD8F-E380-A60B-26C5C43D2635</generatorID>
 <ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
@@ -72,9 +72,9 @@
 <ownDataTypeParameters>50,,</ownDataTypeParameters>
 <autoIncrementCycle>false</autoIncrementCycle>
 </Column>
-<Column name="REGION_NAME" id="BC94C87C-926B-1531-7D58-1A04A906CB42">
-<createdBy>briancatraguna</createdBy>
-<createdTime>2023-11-18 04:20:19 UTC</createdTime>
+<Column name="REGION_NAME" id="8E850C2D-9143-EC84-F738-D4FB81DDD6B4">
+<createdBy>palak</createdBy>
+<createdTime>2023-11-18 22:07:28 UTC</createdTime>
 <commentInRDBMS><![CDATA[Region name]]></commentInRDBMS>
 <generatorID>8846C797-85C6-6E51-D043-B11CF7A8AFFA</generatorID>
 <ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
@@ -87,16 +87,16 @@
 </Column>
 </columns>
 <indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
-<ind_PK_UK id="43D1791C-9435-83E8-B5D7-7EC0768B095C" name="DIM_ADDRESS_PK">
-<createdBy>briancatraguna</createdBy>
-<createdTime>2023-11-18 04:20:19 UTC</createdTime>
+<ind_PK_UK id="4B4B30B2-11B5-8726-AC29-ED37C71233C8" name="DIM_ADDRESS_PK">
+<createdBy>palak</createdBy>
+<createdTime>2023-11-18 22:07:28 UTC</createdTime>
 <generatorID>C1229900-1A9B-F04F-0994-B4F5FFD8BDCE</generatorID>
 <ownerDesignName>awesome_inc_data_warehouse</ownerDesignName>
 <pk>true</pk>
 <indexState>Primary Constraint</indexState>
 <isSurrogateKey>false</isSurrogateKey>
 <indexColumnUsage>
-<colUsage columnID="1A1F1B6E-D18D-D991-F6DB-F423627DFC8D"/>
+<colUsage columnID="D92617A0-8FC2-42C1-2534-9CA46F82F3CB"/>
 </indexColumnUsage>
 </ind_PK_UK>
 </indexes>
