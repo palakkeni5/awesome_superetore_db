@@ -21,6 +21,7 @@ DATE FORMAT "yyyy-mm-dd HH24:MI"
    cust_id          ,
    sub_category_id  ,
    product_id       ,
+   market			,
    date_id          ,
    TBL_LAST_DT  	
 		 	

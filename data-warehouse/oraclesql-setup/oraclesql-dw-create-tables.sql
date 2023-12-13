@@ -96,8 +96,7 @@ COMMENT ON COLUMN dim_pkbc_date.year IS
 
 ALTER TABLE dim_pkbc_date ADD CONSTRAINT dim_pkbc_date_pk PRIMARY KEY ( date_id );
 
-CREATE TABLE dim_pkbc_product ( 
---  Order id
+CREATE TABLE dim_pkbc_product (
     product_id   VARCHAR2(20) NOT NULL,
     product_name VARCHAR2(200) NOT NULL,
     unit_price   NUMBER(10, 2) NOT NULL,
@@ -154,6 +153,7 @@ CREATE TABLE fact_pkbc_orders (
     cust_id         VARCHAR2(20) NOT NULL,
     sub_category_id NUMBER(5) NOT NULL, 
     product_id      VARCHAR2(20) NOT NULL,
+	market       NUMBER(1) NOT NULL,
     date_id         VARCHAR2(8) NOT NULL
 );
 
@@ -181,8 +181,6 @@ COMMENT ON COLUMN fact_pkbc_orders.profit IS
 COMMENT ON COLUMN fact_pkbc_orders.sales IS
     'Sales for the product of the order';
 
-COMMENT ON COLUMN fact_pkbc_orders.tbl_last_dt IS
-    'Timestamp for the row data added';
 
 COMMENT ON COLUMN fact_pkbc_orders.ship_date IS
     'Shipping Date';
@@ -205,12 +203,9 @@ ALTER TABLE fact_pkbc_orders
         REFERENCES dim_pkbc_date ( date_id );
 
 ALTER TABLE fact_pkbc_orders
-    ADD CONSTRAINT orders_product_fk FOREIGN KEY ( product_id )
-        REFERENCES dim_pkbc_product ( product_id );
+    ADD CONSTRAINT orders_product_fk FOREIGN KEY ( product_id, market )
+        REFERENCES dim_pkbc_product ( product_id, market );
 		
-ALTER TABLE fact_pkbc_orders
-    ADD CONSTRAINT orders_product_fk FOREIGN KEY ( market )
-        REFERENCES dim_pkbc_product ( market );
 
 ALTER TABLE fact_pkbc_orders
     ADD CONSTRAINT orders_sub_category_fk FOREIGN KEY ( sub_category_id )
@@ -223,4 +218,22 @@ alter table dim_pkbc_date add tbl_last_date timestamp default sysdate;
 alter table dim_pkbc_product add tbl_last_date timestamp default sysdate;
 alter table dim_pkbc_sub_category add tbl_last_date timestamp default sysdate;
 alter table fact_pkbc_orders add tbl_last_date timestamp default sysdate;
+
+COMMENT ON COLUMN dim_pkbc_address.tbl_last_date IS
+    'Timestamp for the row data added';
+	
+COMMENT ON COLUMN dim_pkbc_customer.tbl_last_date IS
+    'Timestamp for the row data added';
+
+COMMENT ON COLUMN dim_pkbc_date.tbl_last_date IS
+    'Timestamp for the row data added';
+
+COMMENT ON COLUMN dim_pkbc_product.tbl_last_date IS
+    'Timestamp for the row data added';
+
+COMMENT ON COLUMN dim_pkbc_sub_category.tbl_last_date IS
+    'Timestamp for the row data added';
+
+COMMENT ON COLUMN fact_pkbc_orders.tbl_last_date IS
+    'Timestamp for the row data added';
 

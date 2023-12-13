@@ -1,3 +1,4 @@
+SET SERVEROUTPUT ON ;
 create or replace PROCEDURE  load_merge_dim_pkbc_address IS
 err_code NUMBER;
 err_msg VARCHAR2(32000);
@@ -200,6 +201,7 @@ BEGIN
         a.cust_id          = b.cust_id         ,
         a.sub_category_id  = b.sub_category_id ,
         a.product_id       = b.product_id      ,
+		a.market	       = b.market      		,
         a.date_id          = b.date_id         ,   
       a.TBL_LAST_DATE = to_timestamp(b.tbl_last_dt,'RRRR-MM-DD HH24:MI:SS')         
   WHEN NOT MATCHED THEN
@@ -219,6 +221,7 @@ BEGIN
 	  cust_id           ,
 	  sub_category_id   ,
 	  product_id        ,
+	  market			,
 	  date_id           ,	
 	  TBL_LAST_DATE      
 	  )
@@ -238,6 +241,7 @@ BEGIN
 	  b.cust_id         ,
 	  b.sub_category_id ,
 	  b.product_id      ,
+	  b.market			,
 	  b.date_id         ,	  
       to_timestamp(b.tbl_last_dt,'RRRR-MM-DD HH24:MI:SS'));
             

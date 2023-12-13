@@ -84,7 +84,8 @@ select
 	addr_id as address_id    ,  
 	cust_id   ,      
 	sub_category_id , 
-	a.product_id  ,    
+	a.product_id  ,
+	a.market   , 
 	DATE_FORMAT(order_date,'%m%d%Y'),
 	a.tbl_last_dt
 into outfile 'fullstg_pkbc_fact_orders.csv'
@@ -94,7 +95,7 @@ into outfile 'fullstg_pkbc_fact_orders.csv'
   INNER JOIN pkbc_orders b on a.order_id = b.order_id
   INNER JOIN pkbc_product c on a.product_id = c.product_id and a.market = c.market;
   
-  insert into etl_extract_date values ( now() );
+  insert into etl_extract_date(last_extract_date) values ( now() );
   
 END;
 
