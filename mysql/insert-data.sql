@@ -103,7 +103,7 @@ insert into pkbc_product(
 ) select distinct 
         `Order ID`   	,
 		STR_TO_DATE(`Order Date`, '%m/%d/%Y')   ,
-        'N' as is_returned 
+        '0' as is_returned 
 	from pkbc_awesome_inc_orders a ;
 
 
@@ -191,7 +191,7 @@ insert into pkbc_ord_prod(
  from pkbc_awesome_inc_orders  a ;
 
 
-update pkbc_orders a set is_returned = true 
+update pkbc_orders a set is_returned = '1' 
 where a.order_id in ( select `Order ID` from pkbc_awesome_inc_returns);
 
 delete from pkbc_ord_prod 
