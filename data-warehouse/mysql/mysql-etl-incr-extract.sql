@@ -20,7 +20,7 @@ SET@`qry` = CONCAT(
         e.region_name as region_name,
 		a.tbl_last_dt
 into outfile ' , 
-' \' ' , 'incr_pkbc_dim_address_' , @`curr_str`, '.csv \' ',
+' \'' , 'incr_pkbc_dim_address_' , @`curr_str`, '.csv \' ',
  'FIELDS TERMINATED BY' ,  '  \',\' ',  'OPTIONALLY ENCLOSED BY ' , ' \'\"\' ' ,
   'LINES TERMINATED BY' ,   ' \'\n\' ' ,
   'FROM pkbc_address a 
@@ -46,7 +46,7 @@ SET@`qry` = CONCAT(
      `password`,
 	tbl_last_dt
 into outfile ' , 
-' \' ' , 'incr_pkbc_dim_customer_' , @`curr_str`, '.csv \' ',
+' \'' , 'incr_pkbc_dim_customer_' , @`curr_str`, '.csv \' ',
  'FIELDS TERMINATED BY' ,  '  \',\' ',  'OPTIONALLY ENCLOSED BY ' , ' \'\"\' ' ,
   'LINES TERMINATED BY' ,   ' \'\n\' ' ,
   'FROM pkbc_customer 
@@ -67,7 +67,7 @@ DEALLOCATE PREPARE `stmt`;
 	  market  ,
 		tbl_last_dt
 into outfile ' , 
-' \' ' , 'incr_pkbc_dim_product_' , @`curr_str`, '.csv \' ',
+' \'' , 'incr_pkbc_dim_product_' , @`curr_str`, '.csv \' ',
  'FIELDS TERMINATED BY' ,  '  \',\' ',  'OPTIONALLY ENCLOSED BY ' , ' \'\"\' ' ,
   'LINES TERMINATED BY' ,   ' \'\n\' ' ,
   'FROM pkbc_product 
@@ -97,7 +97,7 @@ select
    WHERE a.tbl_last_dt > (select max(last_extract_date) from etl_extract_date)
    ) resulting_set
 into outfile ' , 
-' \' ' , 'incr_pkbc_dim_sub_category_' , @`curr_str`, '.csv \' ',
+' \'' , 'incr_pkbc_dim_sub_category_' , @`curr_str`, '.csv \' ',
  'FIELDS TERMINATED BY' ,  '  \',\' ',  'OPTIONALLY ENCLOSED BY ' , ' \'\"\' ' ,
   'LINES TERMINATED BY' ,   ' \'\n\' ;'
 );
@@ -130,7 +130,7 @@ SET@`qry` = CONCAT(
 	DATE_FORMAT(order_date,\'%m%d%Y\'),
 	a.tbl_last_dt
 into outfile ' , 
-' \' ' , 'incr_pkbc_fact_orders_' , @`curr_str`, '.csv \' ',
+' \'' , 'incr_pkbc_fact_orders_' , @`curr_str`, '.csv \' ',
  'FIELDS TERMINATED BY' ,  '  \',\' ',  'OPTIONALLY ENCLOSED BY ' , ' \'\"\' ' ,
   'LINES TERMINATED BY' ,   ' \'\n\' ' ,
   'FROM pkbc_ord_prod a         
