@@ -136,7 +136,8 @@ ALTER TABLE pkbc_address
 
 ALTER TABLE pkbc_address
     ADD CONSTRAINT pkbc_address_pkbc_customer_fk FOREIGN KEY ( cust_id )
-        REFERENCES pkbc_customer ( cust_id );
+        REFERENCES pkbc_customer ( cust_id )
+        ON UPDATE CASCADE;
         
 ALTER TABLE pkbc_country
 	ADD CONSTRAINT pkbc_country_pkbc_region_fk FOREIGN KEY ( region_id )
@@ -166,7 +167,8 @@ ALTER TABLE pkbc_ord_prod
 
 ALTER TABLE pkbc_ord_prod
     ADD CONSTRAINT pkbc_ord_prod_pkbc_customer_fk FOREIGN KEY ( cust_id )
-        REFERENCES pkbc_customer ( cust_id );
+        REFERENCES pkbc_customer ( cust_id )
+        ON UPDATE CASCADE;
 
 ALTER TABLE pkbc_product
     ADD CONSTRAINT pkbc_sub_category_fk FOREIGN KEY ( sub_category_id )
